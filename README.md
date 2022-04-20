@@ -12,8 +12,8 @@
 ### 4 paredes:
 
 - O usuário pode: 
-    - escolher a medida de cada parede livremente
-    - adicionar quantas portas e janelas quiser para cada parede
+    - escolher a medida de cada parede livremente (done)
+    - adicionar quantas portas e janelas quiser para cada parede (done)
 
 ### Condições:
 	
