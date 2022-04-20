@@ -25,10 +25,10 @@
 	- Altura da parede com porta deve ser no mínimo 30 centímetros a mais que a altura da porta
 
 - Janelas:
-	- dimensões fixas de 2.00 x 1.20 metros.
+	- dimensões fixas de 2.00 x 1.20 metros. (Done)
 	
 - Portas: 
-	- fixas de 0.80 x 1.90 metros.
+	- fixas de 0.80 x 1.90 metros. (Done)
 
 - Pisos e tetos:
 	- Não se aplica.
