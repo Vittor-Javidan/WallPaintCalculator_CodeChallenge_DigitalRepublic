@@ -1,10 +1,9 @@
 # Instalação
 
-Para instalar, basta clonar esse repositório. 
-Após clonar abra um terminal na pasta ***wall_paint_calculator*** e em seguida use o comando ***npm i***
-após a instação pelo terminal, use o commando ***npm start**
-
-Se tudo ocorreu bem, uma aba no navegador será aberta automaticamente.
+- Para instalar, basta clonar esse repositório. 
+- Após clonar abra um terminal na pasta ***wall_paint_calculator*** e em seguida use o comando ***npm i***
+- após a instação pelo terminal, use o commando ***npm start**
+- Se tudo ocorreu bem, uma aba no navegador será aberta automaticamente.
 
 # Regras de negócio do aplicativo:
 
