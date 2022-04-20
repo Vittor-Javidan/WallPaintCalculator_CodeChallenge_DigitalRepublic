@@ -20,7 +20,8 @@ export default function WindowsInput({index, walls, setWalls}){
         <>
             <label>Windows</label>
             <input 
-                value={walls.wall[index].windows | 0}
+                type={'number'}
+                value={walls.wall[index].windows}
                 onChange={windowsHandler}
             />
         </>

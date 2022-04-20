@@ -8,7 +8,7 @@ function wallInit () {
     const wallsArray = []
     for(let i = 0; i < appConfig.WALLS_AMMOUNT; i++){
         wallsArray.push({
-            width: 0,
+            width: 1.0,
             doors: 0,
             windows: 0
         })
@@ -19,19 +19,17 @@ function wallInit () {
 export default function App() {
 
     const [walls, setWalls] = useState({
-        height: 0,
+        height: 1.0,
         wall: wallInit()
     })
-
-    console.log(walls)
-    
+        
     return (
         <div className="App">
             <h1 className="App-Title">Wall Paint Calculator</h1>
             <form>
                 <Inputs walls={walls} setWalls={setWalls}/>
             </form>
-            <Output />
+            <Output walls={walls}/>
         </div>
     );
 }

@@ -20,7 +20,8 @@ export default function WidthInput({index, walls, setWalls}){
         <>
             <label>Width</label>
             <input 
-                value={walls.wall[index].width | 0}
+                type={'number'}
+                value={walls.wall[index].width}
                 onChange={widthHandler}
             />
         </>

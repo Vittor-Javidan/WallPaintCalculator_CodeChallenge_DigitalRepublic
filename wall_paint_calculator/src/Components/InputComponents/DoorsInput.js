@@ -20,7 +20,8 @@ export default function DoorsInput({index, walls, setWalls}){
         <>
             <label>Doors</label>
             <input 
-                value={walls.wall[index].doors | 0}
+                type={'number'}
+                value={walls.wall[index].doors}
                 onChange={doorsHandler}
             />
         </>

@@ -18,11 +18,11 @@
 ### Condições:
 	
 - Parede:
-	- mínimo de 1 metro quadrado
-	- máximo de 15 metros quadrados
-	- alturas e larguras são livres
-	- Área consumida por portas e janelas não pode passar 50% da área da parede
-	- Altura da parede com porta deve ser no mínimo 30 centímetros a mais que a altura da porta
+	- mínimo de 1 metro quadrado (done)
+	- máximo de 15 metros quadrados (done)
+	- alturas e larguras são livres (done)
+	- Área consumida por portas e janelas não pode passar 50% da área da parede (done)
+	- Altura da parede com porta deve ser no mínimo 30 centímetros a mais que a altura da porta (done)
 
 - Janelas:
 	- dimensões fixas de 2.00 x 1.20 metros. (Done)
@@ -35,12 +35,12 @@
 
 ## Output:
 
-- Número mínimo de latas necessárias para se pintar as paredes, priorizando sempre latas maiores
+- Número mínimo de latas necessárias para se pintar as paredes, priorizando sempre latas maiores (done)
 
 ### Condições:
 
-- Cada litro de tinta equivale a 5 metros quadrados de área pintada
-- Tamanhos pré definidos de latas:
+- Cada litro de tinta equivale a 5 metros quadrados de área pintada (done)
+- Tamanhos pré definidos de latas: (done)
 	- 0.5 	litros
 	- 2.4 	litros
 	- 3.6 	litros

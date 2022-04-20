@@ -12,8 +12,9 @@ export default function HeightInput({walls, setWalls}){
     return (
         <>
             <label>Walls Height</label>
-            <input 
-                value={walls.height | 0}
+            <input
+                type={'number'}
+                value={walls.height}
                 onChange={heightHandler}
             />
         </>
