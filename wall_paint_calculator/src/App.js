@@ -8,9 +8,9 @@ function wallInit () {
     const wallsArray = []
     for(let i = 0; i < appConfig.WALLS_AMMOUNT; i++){
         wallsArray.push({
-            width: 1.0,
-            doors: 0,
-            windows: 0
+            width: appConfig.START_INPUTS.WALL_WIDTH,
+            doors: appConfig.START_INPUTS.DOORS_AMOUNT,
+            windows: appConfig.START_INPUTS.WINDOWS_AMOUNT
         })
     }
     return wallsArray
@@ -19,7 +19,7 @@ function wallInit () {
 export default function App() {
 
     const [walls, setWalls] = useState({
-        height: 1.0,
+        height: appConfig.START_INPUTS.WALL_HEIGHT,
         wall: wallInit()
     })
         

@@ -9,6 +9,12 @@ const appConfig = {
     WINDOW: {
         WIDTH: 2.0,
         HEIGHT: 1.2
+    },
+    START_INPUTS: {
+        WALL_HEIGHT: 2.2,
+        WALL_WIDTH: 5,
+        DOORS_AMOUNT: 0,
+        WINDOWS_AMOUNT: 0
     }
 }
 
