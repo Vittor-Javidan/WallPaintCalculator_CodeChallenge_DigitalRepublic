@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import rulesChecking from './Scripts/rulesChecking'
 import wallPaintCans from './Scripts/wallPaintCans'
+import resetFeedbackStates from './Scripts/resetFeedbackStates'
 
 export default function Output({walls}) {
 
@@ -12,40 +13,33 @@ export default function Output({walls}) {
     const [totalCans, setTotalCans] = useState("")
     let areaToPaint = totalWallArea - totalDoorArea - totalWindowArea
 
-    function resetStates(){
-        setTotalWallArea(0)
-        setTotalDoorArea(0)
-        setTotalWindowArea(0)
-        setTotalCans("")
+    let props = {
+        walls,
+        setTotalWallArea, 
+        setTotalDoorArea, 
+        setTotalWindowArea, 
+        setStatus,
+        setTotalCans,
+        areaToPaint
     }
 
     useEffect(()=>{
 
-        let props = {
-            walls,
-            setTotalWallArea, 
-            setTotalDoorArea, 
-            setTotalWindowArea, 
-            setStatus
-        }
-        resetStates()
+        resetFeedbackStates(props)
         rulesChecking(props)
+        console.log(status)
 
         if(status === `ok`){
-            props = {
-                setTotalCans,
-                areaToPaint
-            }
             wallPaintCans(props)
         }
 
     }, [
-        walls, 
-        status, 
-        totalWallArea, 
-        totalDoorArea, 
-        totalWindowArea, 
-        totalCans
+        walls,
+        status,
+        totalWallArea,
+        totalDoorArea,
+        totalWindowArea,
+        totalCans 
     ])
 
 

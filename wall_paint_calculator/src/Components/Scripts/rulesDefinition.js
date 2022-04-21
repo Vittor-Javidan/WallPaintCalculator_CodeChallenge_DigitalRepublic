@@ -41,6 +41,16 @@ export function checkWallAreaUsage(walls, setStatus, setTotalDoorArea, setTotalW
 
     if ((doorArea + windowArea) > wallArea / 2)
         return setStatus(prev => `Doors and window are using more than 50% of wall ${index + 1} area`)
+}
 
-    setStatus(`ok`)
+export function checkWidthWallUsage(walls, setStatus, index){
+
+    const widthLimit = (
+        walls.wall[index].width 
+        - (walls.wall[index].doors * appConfig.DOOR.WIDTH)
+        - (walls.wall[index].windows * appConfig.WINDOW.WIDTH)
+    )
+    if(widthLimit < 0){
+        return setStatus(`Wall ${index + 1} width cannot have that many doors and windows`)
+    }
 }

@@ -3,7 +3,8 @@ import {
     checkMinMaxWallArea,
     checkDoorsRequirements,
     checkWindowsRequirements,
-    checkWallAreaUsage
+    checkWallAreaUsage,
+    checkWidthWallUsage
 } from "./rulesDefinition.js"
 
 export default function rulesChecking(props) {
@@ -26,5 +27,6 @@ export default function rulesChecking(props) {
         checkDoorsRequirements(walls, setStatus, i)
         checkWindowsRequirements(walls, setStatus, i)
         checkWallAreaUsage(walls, setStatus, setTotalDoorArea, setTotalWindowArea, wallArea, i)
+        checkWidthWallUsage(walls, setStatus, i)
     }
 }
