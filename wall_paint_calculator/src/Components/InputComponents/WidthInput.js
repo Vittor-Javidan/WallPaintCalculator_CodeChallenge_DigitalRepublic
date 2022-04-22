@@ -1,4 +1,9 @@
-export default function WidthInput({index, walls, setWalls}){
+import { useContext } from "react";
+import { AppContext } from "../../App";
+
+export default function WidthInput({index}){
+
+    const {walls, setWalls} = useContext(AppContext)
 
     function widthHandler(e){
         setWalls( prev => {

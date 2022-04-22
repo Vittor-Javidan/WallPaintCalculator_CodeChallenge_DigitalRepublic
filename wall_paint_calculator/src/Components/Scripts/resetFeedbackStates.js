@@ -1,16 +1,8 @@
-export default function resetFeedbackStates(props){
+export default function ResetFeedbackStates(props){
 
-    const {
-        setTotalWallArea,
-        setTotalDoorArea,
-        setTotalWindowArea,
-        setTotalCans,
-        setStatus
-    } = props
-
-    setTotalWallArea(0)
-    setTotalDoorArea(0)
-    setTotalWindowArea(0)
-    setTotalCans("")
-    setStatus(`ok`)
+    props.setTotalWallArea(0)
+    props.setTotalDoorArea(0)
+    props.setTotalWindowArea(0)
+    props.setTotalCans("")
+    props.setStatus(`ok`)
 }

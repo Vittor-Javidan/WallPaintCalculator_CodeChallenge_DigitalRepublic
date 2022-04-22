@@ -1,4 +1,9 @@
-export default function WindowsInput({index, walls, setWalls}){
+import { useContext } from "react"
+import { AppContext } from "../../App"
+
+export default function WindowsInput({index}){
+
+    const {walls, setWalls} = useContext(AppContext)
 
     function windowsHandler(e){
         setWalls( prev => {

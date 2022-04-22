@@ -1,4 +1,9 @@
-export default function HeightInput({walls, setWalls}){
+import { useContext } from "react"
+import { AppContext } from "../../App"
+
+export default function HeightInput(){
+
+    const {walls, setWalls} = useContext(AppContext)
 
     function heightHandler(e){
         setWalls(prev => (

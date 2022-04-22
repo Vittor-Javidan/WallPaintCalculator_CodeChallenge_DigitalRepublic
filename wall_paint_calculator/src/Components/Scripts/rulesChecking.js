@@ -9,13 +9,7 @@ import {
 
 export default function rulesChecking(props) {
 
-    const {
-        walls,
-        setTotalWallArea,
-        setTotalDoorArea,
-        setTotalWindowArea,
-        setStatus
-    } = props
+    const { walls, setTotalWallArea } = props
 
     for (let i = 0; i < appConfig.WALLS_AMMOUNT; i++) {
 
@@ -23,10 +17,10 @@ export default function rulesChecking(props) {
         let wallArea = walls.wall[i].width * walls.height
         setTotalWallArea(prev => prev + wallArea)
 
-        checkMinMaxWallArea(wallArea, setStatus, i)
-        checkDoorsRequirements(walls, setStatus, i)
-        checkWindowsRequirements(walls, setStatus, i)
-        checkWallAreaUsage(walls, setStatus, setTotalDoorArea, setTotalWindowArea, wallArea, i)
-        checkWidthWallUsage(walls, setStatus, i)
+        checkMinMaxWallArea(props, i, wallArea)
+        checkDoorsRequirements(props, i)
+        checkWindowsRequirements(props, i)
+        checkWallAreaUsage(props, i)
+        checkWidthWallUsage(props, i)
     }
 }

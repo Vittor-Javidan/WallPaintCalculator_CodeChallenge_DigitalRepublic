@@ -1,8 +1,10 @@
-import {useState} from "react"
+import {createContext, useState} from "react"
 import appConfig from "./AppConfig";
 
 import Output from "./Components/Output";
 import Inputs from "./Components/Inputs";
+
+export const AppContext = createContext()
 
 function wallInit () {
     const wallsArray = []
@@ -22,14 +24,21 @@ export default function App() {
         height: appConfig.START_INPUTS.WALL_HEIGHT,
         wall: wallInit()
     })
+
+    const props = {
+        walls,
+        setWalls
+    }
         
     return (
-        <div className="App">
-            <h1 className="App-Title">Wall Paint Calculator</h1>
-            <form>
-                <Inputs walls={walls} setWalls={setWalls}/>
-            </form>
-            <Output walls={walls}/>
-        </div>
+        <AppContext.Provider value={props}>
+            <div className="App">
+                <h1 className="App-Title">Wall Paint Calculator</h1>
+                <form>
+                    <Inputs />
+                </form>
+                <Output />
+            </div>
+        </AppContext.Provider>
     );
 }

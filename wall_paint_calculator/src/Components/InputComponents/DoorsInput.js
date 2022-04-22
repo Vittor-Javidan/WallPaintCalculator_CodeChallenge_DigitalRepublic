@@ -1,4 +1,9 @@
-export default function DoorsInput({index, walls, setWalls}){
+import { useContext } from "react";
+import { AppContext } from "../../App";
+
+export default function DoorsInput({index}){
+
+    const {walls, setWalls} = useContext(AppContext)
 
     function doorsHandler(e){
         setWalls( prev => {

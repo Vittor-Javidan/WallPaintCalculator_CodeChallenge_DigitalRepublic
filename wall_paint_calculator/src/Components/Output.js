@@ -1,9 +1,13 @@
-import {useEffect, useState} from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { AppContext } from '../App'
+
 import rulesChecking from './Scripts/rulesChecking'
 import wallPaintCans from './Scripts/wallPaintCans'
 import resetFeedbackStates from './Scripts/resetFeedbackStates'
 
-export default function Output({walls}) {
+export default function Output() {
+
+    const { walls } = useContext(AppContext)
 
     //feedback states
     const [status, setStatus] = useState(`Waiting for input data`)
@@ -13,7 +17,7 @@ export default function Output({walls}) {
     const [totalCans, setTotalCans] = useState("")
     let areaToPaint = totalWallArea - totalDoorArea - totalWindowArea
 
-    let props = {
+    const props = {
         walls,
         setTotalWallArea, 
         setTotalDoorArea, 
