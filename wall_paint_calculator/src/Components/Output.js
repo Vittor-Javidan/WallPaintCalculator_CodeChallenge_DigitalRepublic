@@ -12,7 +12,7 @@ export default function Output() {
     const [totalWallArea, setTotalWallArea] = useState(0)
     const [totalDoorArea, setTotalDoorArea] = useState(0)
     const [totalWindowArea, setTotalWindowArea] = useState(0)
-    const [totalCans, setTotalCans] = useState("")
+    const [neededCans, setTotalCans] = useState("")
 
     const props = {
         walls           ,
@@ -20,23 +20,12 @@ export default function Output() {
         totalWallArea   , setTotalWallArea      ,
         totalDoorArea   , setTotalDoorArea      ,
         totalWindowArea , setTotalWindowArea    ,
-        totalCans       , setTotalCans
+        neededCans      , setTotalCans
     }
 
     useEffect(() => {
-
         feedbackUpdate(props)
-
-        console.log(status)
-        console.log("aqui")
-
-    }, [
-        walls,
-        totalWallArea,
-        totalDoorArea,
-        totalWindowArea,
-        totalCans
-    ])
+    }, [walls])
 
 
     return (
@@ -45,7 +34,7 @@ export default function Output() {
             <h2>total Wall Area: {totalWallArea}</h2>
             <h2>total Door Area: {totalDoorArea}</h2>
             <h2>total Window Area: {totalWindowArea}</h2>
-            <h2>total Cans: {totalCans}</h2>
+            <h2>total Cans: {neededCans}</h2>
         </div>
     )
 }

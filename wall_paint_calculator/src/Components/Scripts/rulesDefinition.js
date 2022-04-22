@@ -1,16 +1,18 @@
 import appConfig from "../../AppConfig"
+import WallMath from "./WallMath"
 
-export function checkMinMaxWallArea(props, index, wallArea) {
+export function checkMinMaxWallArea(props, index) {
 
-    const { setStatus } = props
+    const { walls, setStatus } = props
+    const wallArea = WallMath.wallArea(walls, index)
 
     const min = wallArea >= appConfig.WALL_MIN_AREA
     const max = wallArea <= appConfig.WALL_MAX_AREA
 
     if (!min)
-        return setStatus(prev => `Wall ${index + 1} cannot be less than 1 square meter`)
+        return setStatus(`Wall ${index + 1} cannot be less than 1 square meter`)
     else if (!max)
-        return setStatus(prev => `Wall ${index + 1} cannot be more than 15 square meter`)
+        return setStatus(`Wall ${index + 1} cannot be more than 15 square meter`)
 }
 
 export function checkDoorsRequirements(props, index) {
@@ -21,9 +23,9 @@ export function checkDoorsRequirements(props, index) {
     const widthWithDoor = appConfig.DOOR.WIDTH <= walls.wall[index].width
 
     if (walls.wall[index].doors > 0 && !heightWithDoor)
-        return setStatus(prev => `Wall height cannot allow a door`)
+        return setStatus(`Wall height cannot allow a door`)
     else if (walls.wall[index].doors > 0 && !widthWithDoor)
-        return setStatus(prev => `Wall ${index + 1} width cannot allow a door`)
+        return setStatus(`Wall ${index + 1} width cannot allow a door`)
 }
 
 export function checkWindowsRequirements(props, index) {
@@ -34,27 +36,24 @@ export function checkWindowsRequirements(props, index) {
     const widthWithWindow = appConfig.WINDOW.WIDTH <= walls.wall[index].width
 
     if (walls.wall[index].windows > 0 && !heightWithWindow)
-        return setStatus(prev => `Wall height cannot have a window`)
+        return setStatus(`Wall height cannot have a window`)
     else if (walls.wall[index].windows > 0 && !widthWithWindow)
-        return setStatus(prev => `Wall ${index + 1} width cannot have a window`)
+        return setStatus(`Wall ${index + 1} width cannot have a window`)
 }
 
-export function checkWallAreaUsage(props, index, wallArea) {
+export function checkWallAreaUsage(props, index) {
 
     const {
         walls,
-        setStatus,
-        setTotalDoorArea,
-        setTotalWindowArea
+        setStatus
     } = props
 
-    const doorArea = (appConfig.DOOR.WIDTH * appConfig.DOOR.HEIGHT) * walls.wall[index].doors
-    const windowArea = (appConfig.WINDOW.WIDTH * appConfig.WINDOW.HEIGHT) * walls.wall[index].windows
-    setTotalDoorArea(prev => prev + doorArea)
-    setTotalWindowArea(prev => prev + windowArea)
+    const wallArea = WallMath.wallArea(walls, index)
+    const doorArea = WallMath.doorArea(walls, index)
+    const windowArea = WallMath.windowArea(walls, index)
 
     if ((doorArea + windowArea) > wallArea / 2)
-        return setStatus(prev => `Doors and window are using more than 50% of wall ${index + 1} area`)
+        return setStatus(`Doors and window are using more than 50% of wall ${index + 1} area`)
 }
 
 export function checkWidthWallUsage(props, index) {

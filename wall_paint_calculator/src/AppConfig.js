@@ -1,4 +1,5 @@
 const appConfig = {
+    
     WALLS_AMMOUNT: 4,
     WALL_MIN_AREA: 1,
     WALL_MAX_AREA: 15,
@@ -15,7 +16,9 @@ const appConfig = {
         WALL_WIDTH: 5,
         DOORS_AMOUNT: 0,
         WINDOWS_AMOUNT: 0
-    }
+    },
+    INK_EFFICIENCY: 5,
+    CANS_SIZES: [18, 3.6, 2.4, 0.5]
 }
 
 export default appConfig
