@@ -13,16 +13,14 @@ export default function Output() {
     const [totalDoorArea, setTotalDoorArea] = useState(0)
     const [totalWindowArea, setTotalWindowArea] = useState(0)
     const [totalCans, setTotalCans] = useState("")
-    let areaToPaint = totalWallArea - totalDoorArea - totalWindowArea
 
     const props = {
-        walls,
-        setTotalWallArea,
-        setTotalDoorArea,
-        setTotalWindowArea,
-        setStatus,
-        setTotalCans,
-        areaToPaint
+        walls           ,
+        status          , setStatus             ,
+        totalWallArea   , setTotalWallArea      ,
+        totalDoorArea   , setTotalDoorArea      ,
+        totalWindowArea , setTotalWindowArea    ,
+        totalCans       , setTotalCans
     }
 
     useEffect(() => {

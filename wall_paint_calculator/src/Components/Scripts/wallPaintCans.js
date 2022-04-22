@@ -1,9 +1,13 @@
 export default function wallPaintCans(props){
 
     let {
-        setTotalCans,
-        areaToPaint
+        totalWallArea,
+        totalDoorArea,
+        totalWindowArea,
+        setTotalCans
     } = props
+
+    let areaToPaint = totalWallArea - totalDoorArea - totalWindowArea
 
     function calculateCans(liters, minimun){
 
