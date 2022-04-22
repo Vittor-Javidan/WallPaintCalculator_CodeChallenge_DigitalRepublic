@@ -1,4 +1,4 @@
-export default function ResetFeedbackStates(props){
+export default function resetFeedbackStates(props){
 
     props.setTotalWallArea(0)
     props.setTotalDoorArea(0)

@@ -11,12 +11,12 @@ export default function wallPaintCans(props){
         if(areaToPaint/areaPerCan >= 1 && liters > minimun){
             const cans = Math.floor(areaToPaint/areaPerCan)
             areaToPaint = areaToPaint - areaPerCan * cans
-            setTotalCans(prev => prev + `${liters}L = ${cans} \n`)
+            setTotalCans(prev => prev + `${liters}L = ${cans}, `)
 
-        } else if (areaToPaint/areaPerCan > 0 && liters === minimun){
+        } else if (areaToPaint/areaPerCan >= 0 && liters === minimun){
             const cans = Math.ceil(areaToPaint/areaPerCan)
             areaToPaint = areaToPaint - areaPerCan * cans
-            setTotalCans(prev => prev + `${liters}L = ${cans} \n`)
+            setTotalCans(prev => prev + `${liters}L = ${cans}`)
         }
     }
 
