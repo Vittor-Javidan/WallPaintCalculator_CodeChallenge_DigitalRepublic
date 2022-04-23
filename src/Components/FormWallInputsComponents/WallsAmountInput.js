@@ -18,8 +18,6 @@ export default function WallsAmountInput() {
                 wallsArray.push(
                     {
                         width: appConfig.START_INPUTS.WALL_WIDTH,
-                        doors: appConfig.START_INPUTS.DOORS_AMOUNT,
-                        windows: appConfig.START_INPUTS.WINDOWS_AMOUNT
                     }
                 )
             }

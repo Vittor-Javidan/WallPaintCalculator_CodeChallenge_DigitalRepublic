@@ -11,8 +11,6 @@ function wallInit () {
     for(let i = 0; i < appConfig.WALLS_AMMOUNT; i++){
         wallsArray.push({
             width: appConfig.START_INPUTS.WALL_WIDTH,
-            doors: appConfig.START_INPUTS.DOORS_AMOUNT,
-            windows: appConfig.START_INPUTS.WINDOWS_AMOUNT
         })
     }
     return wallsArray

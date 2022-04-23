@@ -6,14 +6,6 @@ export default class WallMath {
         return wallsObject.wall[index].width * wallsObject.height
     }
 
-    static doorArea(wallsObject, index) {
-        return appConfig.DOOR.WIDTH * appConfig.DOOR.HEIGHT * wallsObject.wall[index].doors
-    }
-
-    static windowArea(wallsObject, index) {
-        return appConfig.WINDOW.WIDTH * appConfig.WINDOW.HEIGHT * wallsObject.wall[index].windows
-    }
-
     static totalWallArea(wallsObject) {
 
         let totalArea = 0
@@ -23,30 +15,10 @@ export default class WallMath {
         return totalArea
     }
 
-    static totalDoorArea(wallsObject) {
-
-        let totalArea = 0
-        for (let i = 0; i < wallsObject.wallsAmount; i++) {
-            totalArea += WallMath.doorArea(wallsObject, i)
-        }
-        return totalArea
-    }
-
-    static totalWindowArea(wallsObject) {
-
-        let totalArea = 0
-        for (let i = 0; i < wallsObject.wallsAmount; i++) {
-            totalArea += WallMath.windowArea(wallsObject, i)
-        }
-        return totalArea
-    }
-
     static calculateCans(wallsObject){
 
         let areaToPaint = (
-            WallMath.totalWallArea(wallsObject) 
-            - WallMath.totalDoorArea(wallsObject) 
-            - WallMath.totalWindowArea(wallsObject)
+            WallMath.totalWallArea(wallsObject)
         ) * wallsObject.inkLayers
         let totalCans = ""
 
