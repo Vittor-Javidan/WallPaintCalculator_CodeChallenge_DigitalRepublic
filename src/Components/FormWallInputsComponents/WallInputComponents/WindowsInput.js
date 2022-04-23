@@ -1,12 +1,13 @@
 import { useContext } from "react"
-import { AppContext } from "../../App"
+import { AppContext } from "../../../App"
 
-export default function WindowsInput({index}){
+export default function WindowsInput({ index }) {
 
-    const {walls, setWalls} = useContext(AppContext)
+    const { walls, setWalls } = useContext(AppContext)
 
-    function windowsHandler(e){
-        setWalls( prev => {
+    function windowsHandler(e) {
+
+        setWalls(prev => {
 
             const wallsArray = [...prev.wall]
             wallsArray[index] = {
@@ -25,7 +26,7 @@ export default function WindowsInput({index}){
         <div className="WindowsInput-div">
             <label className="WindowsInput-label">Windows</label>
             <input
-                className="WindowsInput-input" 
+                className="WindowsInput-input"
                 type={'number'}
                 value={walls.wall[index].windows}
                 onChange={windowsHandler}

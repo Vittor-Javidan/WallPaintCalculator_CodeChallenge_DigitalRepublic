@@ -1,9 +1,9 @@
 import { AppContext } from "../App";
 
-import HeightInput from "./WallInputComponents/HeightInput";
-import InkLayersInput from "./WallInputComponents/InkLayersInput";
-import WallsAmountInput from "./WallInputComponents/WallsAmountInput";
-import WallInput from "./WallInput";
+import HeightInput from "./FormWallInputsComponents/HeightInput";
+import InkLayersInput from "./FormWallInputsComponents/InkLayersInput";
+import WallsAmountInput from "./FormWallInputsComponents/WallsAmountInput";
+import WallInput from "./FormWallInputsComponents/WallInput";
 import { useContext } from "react";
 
 export default function FormWallInputs() {

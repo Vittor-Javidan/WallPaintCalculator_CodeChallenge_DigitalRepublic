@@ -1,4 +1,4 @@
-import WidthInput from "./WallInputComponents/WidthInput";
+import WidthInput from "./WallInputComponents/WidthInput"
 import DoorsInput from "./WallInputComponents/DoorsInput";
 import WindowsInput from "./WallInputComponents/WindowsInput";
 
