@@ -1,18 +1,22 @@
 import appConfig from "../../../AppConfig"
 import WallMath from "../MatchClass/WallMath"
 
-function checkMinMaxWallArea(props, index) {
+function chackNegativeHeight(props, index) {
+
+    const { walls, setStatus } = props
+
+    if (walls.height < 0)
+        return setStatus(`WARN: Height is 0 or Negative`)
+
+}
+
+function checkMinWallArea(props, index) {
 
     const { walls, setStatus } = props
     const wallArea = WallMath.wallArea(walls, index)
 
-    const min = wallArea >= appConfig.WALL_MIN_AREA
-    const max = wallArea <= appConfig.WALL_MAX_AREA
-
-    if (!min)
-        return setStatus(`Wall ${index + 1} cannot be less than 1 square meter`)
-    else if (!max)
-        return setStatus(`Wall ${index + 1} cannot be more than 15 square meter`)
+    if (wallArea < 0)
+        return setStatus(`WARN: Wall ${index + 1} have negative área`)
 }
 
 function checkDoorsRequirements(props, index) {
@@ -50,26 +54,27 @@ function checkWidthWallUsage(props, index) {
         - (walls.wall[index].doors * appConfig.DOOR.WIDTH)
         - (walls.wall[index].windows * appConfig.WINDOW.WIDTH)
     )
-    if (widthLimit < 0) {
+    if (widthLimit < 0)
         return setStatus(`Wall ${index + 1} width cannot have that many doors and windows`)
-    }
 }
 
 function checkLayersAmount(props, index) {
 
     const { walls, setStatus } = props
 
-    if(walls.inkLayers < 1){
+    if (walls.inkLayers < 1)
         return setStatus('WARNING: ink layer < 1 makes no sense')
-    }
 }
 
-const rulesArray = [
-    checkMinMaxWallArea,
+const rulesArray = [ // Last array indexes has priority in status message
+
     checkDoorsRequirements,
     checkWindowsRequirements,
+    checkLayersAmount,
     checkWidthWallUsage,
-    checkLayersAmount
+    checkMinWallArea,
+    chackNegativeHeight
+
 ]
 
 export default rulesArray
