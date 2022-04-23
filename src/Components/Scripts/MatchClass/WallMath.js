@@ -43,7 +43,11 @@ export default class WallMath {
 
     static calculateCans(wallsObject){
 
-        let areaToPaint = WallMath.totalWallArea(wallsObject) - WallMath.totalDoorArea(wallsObject) - WallMath.totalWindowArea(wallsObject)
+        let areaToPaint = (
+            WallMath.totalWallArea(wallsObject) 
+            - WallMath.totalDoorArea(wallsObject) 
+            - WallMath.totalWindowArea(wallsObject)
+        ) * wallsObject.inkLayers
         let totalCans = ""
 
         for (let i = 0; i < appConfig.CANS_SIZES.length; i++){

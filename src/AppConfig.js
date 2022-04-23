@@ -18,7 +18,8 @@ const appConfig = {
         WINDOWS_AMOUNT: 0
     },
     INK_EFFICIENCY: 5,
-    CANS_SIZES: [18, 3.6, 2.4, 0.5]
+    CANS_SIZES: [18, 3.6, 2.4, 0.5],
+    INK_LAYERS: 1
 }
 
 export default appConfig

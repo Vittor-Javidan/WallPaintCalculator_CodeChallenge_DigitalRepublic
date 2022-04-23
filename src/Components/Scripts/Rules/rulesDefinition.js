@@ -19,7 +19,7 @@ function checkDoorsRequirements(props, index) {
 
     const { walls, setStatus } = props
 
-    const heightWithDoor = appConfig.DOOR.HEIGHT + 0.3 <= walls.height
+    const heightWithDoor = appConfig.DOOR.HEIGHT <= walls.height
     const widthWithDoor = appConfig.DOOR.WIDTH <= walls.wall[index].width
 
     if (walls.wall[index].doors > 0 && !heightWithDoor)
@@ -55,11 +55,21 @@ function checkWidthWallUsage(props, index) {
     }
 }
 
+function checkLayersAmount(props, index) {
+
+    const { walls, setStatus } = props
+
+    if(walls.inkLayers < 1){
+        return setStatus('WARNING: ink layer < 1 makes no sense')
+    }
+}
+
 const rulesArray = [
     checkMinMaxWallArea,
     checkDoorsRequirements,
     checkWindowsRequirements,
-    checkWidthWallUsage
+    checkWidthWallUsage,
+    checkLayersAmount
 ]
 
 export default rulesArray

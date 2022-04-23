@@ -1,6 +1,7 @@
 import appConfig from "../AppConfig";
 
 import HeightInput from "./WallInputComponents/HeightInput";
+import InkLayersInput from "./WallInputComponents/InkLayersInput";
 import WallInput from "./WallInput";
 
 export default function FormWallInputs() {
@@ -17,6 +18,7 @@ export default function FormWallInputs() {
     return (
         <form className="FormWallInputs-form">
             <HeightInput />
+            <InkLayersInput />
             {inputsArray}
         </form>
     )
