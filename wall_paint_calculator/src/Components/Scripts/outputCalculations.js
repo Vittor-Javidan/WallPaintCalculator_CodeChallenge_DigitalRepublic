@@ -1,6 +1,6 @@
 import WallMath from "./WallMath"
 
-export default function areaCalculations(props) {
+export default function outputCalculations(props) {
     const {
         walls, 
         setTotalWallArea, 
