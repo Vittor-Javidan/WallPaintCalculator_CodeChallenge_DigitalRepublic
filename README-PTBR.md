@@ -1,7 +1,7 @@
 # Instalação
 
 - Para instalar, basta clonar esse repositório. 
-- Após clonar abra um terminal na pasta ***wall_paint_calculator*** e em seguida use o comando ***npm i***
+- Após clonar abra um terminal na pasta em que contém o arquivo ***package.js*** e em seguida use o comando ***npm i***
 - após a instação pelo terminal, use o commando ***npm start***
 - Se tudo ocorreu bem, uma aba no navegador será aberta automaticamente.
 
@@ -15,7 +15,7 @@
     - escolher a medida de cada parede livremente (done)
     - adicionar quantas portas e janelas quiser para cada parede (done)
 
-### Condições:
+### Condições Originais:
 	
 - Parede:
 	- mínimo de 1 metro quadrado (done)
@@ -53,14 +53,3 @@
 
 - A altura de todas as paredes serão as mesmas, já que não é normal uma sala possuir paredes com alturas
 diferentes.
-
-# Autocrítica
-
-Esse app ele está longe do ideal provavelmente, mas imagino que eu tenha conseguido criar o "MVP" sem bugs de acordo com as condições impostas.
-
-Pela questão do tempo e de nem sempre vim a cabeça o melhor de jeito de se resolver cada parte, acabei concluindo o app por aqui mesmo.
-Entre as coisas que eu desejaria ter tempo para adicionar:
-
-- Evitar a repetição de código entre os componentes DoorsInput, HeightInput, WidthInput e WindowsInput. Mas talvez não haja necessidade já que está fácil de entender do jeito que está.
-- Quanto ao nível de acoplagem, nesse caso já não consigo julgar muito, já que os componentes react não seguem muito uma programação orientada a objetos. Então eu tentei seguir o padrão de subdividir os componentes sempre que adequado, o que deixaria o código simples de se customizar com CSS.
-- É bem provável que exista uma solução bem melhor que a minha, usando menos estados ou até mesmo sendo mais prática e fácil de se fazer em outro framework, mas essa foi a solução e inspiração que me veio na cabeça no momento que comecei a constuir o app, de acordo com o caminho que me parecia mais simples.
