@@ -15,13 +15,14 @@ export default function HeightInput(){
     }
 
     return (
-        <>
-            <label>Walls Height</label>
+        <div className="HeightInput-div">
+            <label className="HeightInput-label">Walls Height</label>
             <input
+                className="HeightInput-input"
                 type={'number'}
                 value={walls.height}
                 onChange={heightHandler}
             />
-        </>
+        </div>
     )
 }

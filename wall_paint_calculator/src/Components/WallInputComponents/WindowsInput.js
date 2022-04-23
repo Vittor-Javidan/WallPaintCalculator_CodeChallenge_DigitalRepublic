@@ -22,14 +22,14 @@ export default function WindowsInput({index}){
     }
 
     return (
-        <>
-            <label>Windows</label>
-            <input 
+        <div className="WindowsInput-div">
+            <label className="WindowsInput-label">Windows</label>
+            <input
+                className="WindowsInput-input" 
                 type={'number'}
                 value={walls.wall[index].windows}
                 onChange={windowsHandler}
             />
-        </>
-
+        </div>
     )
 }

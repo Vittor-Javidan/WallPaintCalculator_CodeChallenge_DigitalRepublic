@@ -22,13 +22,14 @@ export default function WidthInput({index}){
     }
 
     return (
-        <>
-            <label>Width</label>
-            <input 
+        <div className="WidthInput-div">
+            <label className="WidthInput-label">Width</label>
+            <input
+                className="WidthInput-input" 
                 type={'number'}
                 value={walls.wall[index].width}
                 onChange={widthHandler}
             />
-        </>
+        </div>
     )
 }

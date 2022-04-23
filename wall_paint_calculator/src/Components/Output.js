@@ -29,7 +29,7 @@ export default function Output() {
 
 
     return (
-        <div>
+        <div className='Output-div'>
             <h2>Status: {status}</h2>
             <h2>total Wall Area: {totalWallArea}</h2>
             <h2>total Door Area: {totalDoorArea}</h2>

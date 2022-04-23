@@ -22,13 +22,14 @@ export default function DoorsInput({index}){
     }
 
     return (
-        <>
-            <label>Doors</label>
-            <input 
+        <div className="DoorsInput-div">
+            <label className="DoorsInput-label">Doors</label>
+            <input
+                className="DoorsInput-input" 
                 type={'number'}
                 value={walls.wall[index].doors}
                 onChange={doorsHandler}
             />
-        </>
+        </div>
     )
 }
