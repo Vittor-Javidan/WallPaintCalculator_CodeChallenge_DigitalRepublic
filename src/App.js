@@ -7,10 +7,13 @@ import FormWallInputs from "./Components/FormWallInputs";
 export const AppContext = createContext()
 
 function wallInit () {
+
     const wallsArray = []
     for(let i = 0; i < appConfig.WALLS_AMMOUNT; i++){
         wallsArray.push({
             width: appConfig.START_INPUTS.WALL_WIDTH,
+            wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
+            wallObjects: []
         })
     }
     return wallsArray
@@ -29,7 +32,7 @@ export default function App() {
         walls,
         setWalls
     }
-        
+            
     return (
         <AppContext.Provider value={props}>
             <div className="App-div">

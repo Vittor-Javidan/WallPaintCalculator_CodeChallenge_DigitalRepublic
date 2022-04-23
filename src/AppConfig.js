@@ -1,6 +1,7 @@
 const appConfig = {
     
     WALLS_AMMOUNT: 4,
+    WALLS_OBJECT_AMOUNT: 0,
     START_INPUTS: {
         WALL_HEIGHT: 2.0,
         WALL_WIDTH: 5,

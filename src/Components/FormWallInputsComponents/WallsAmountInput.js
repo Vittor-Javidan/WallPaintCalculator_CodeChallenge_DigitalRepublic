@@ -12,19 +12,22 @@ export default function WallsAmountInput() {
         const wallsAmount = Number(e.target.value)
         let wallsArray = [...walls.wall]
 
-        if (wallsAmount > walls.wall.length){
+        if (wallsAmount > wallsArray.length){
 
-            for (let i = 0; i < (Math.floor(wallsAmount) - walls.wall.length); i++) {
+            let diff = Math.floor(wallsAmount) - wallsArray.length
+            for (let i = 0; i < diff; i++) {
                 wallsArray.push(
                     {
                         width: appConfig.START_INPUTS.WALL_WIDTH,
+                        wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
+                        wallObjects: []
                     }
                 )
             }
-        }
-        else {
+            
+        } else {
 
-            let diff = walls.wall.length - Math.floor(wallsAmount)
+            let diff = wallsArray.length - Math.floor(wallsAmount)
             for (let i = 0; i < diff; i++) {
                 wallsArray.pop()
             }
