@@ -41,21 +41,6 @@ function checkWindowsRequirements(props, index) {
         return setStatus(`Wall ${index + 1} width cannot have a window`)
 }
 
-function checkWallAreaUsage(props, index) {
-
-    const {
-        walls,
-        setStatus
-    } = props
-
-    const wallArea = WallMath.wallArea(walls, index)
-    const doorArea = WallMath.doorArea(walls, index)
-    const windowArea = WallMath.windowArea(walls, index)
-
-    if ((doorArea + windowArea) > wallArea / 2)
-        return setStatus(`Doors and window are using more than 50% of wall ${index + 1} area`)
-}
-
 function checkWidthWallUsage(props, index) {
 
     const { walls, setStatus } = props
@@ -74,7 +59,6 @@ const rulesArray = [
     checkMinMaxWallArea,
     checkDoorsRequirements,
     checkWindowsRequirements,
-    checkWallAreaUsage,
     checkWidthWallUsage
 ]
 

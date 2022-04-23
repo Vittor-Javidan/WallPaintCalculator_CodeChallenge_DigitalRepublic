@@ -56,7 +56,7 @@ diferentes.
 
 ## Novas implementações a fazer:
 
-- Remover a necessidade da regra de se limitar 50% da área de parede
+- Remover a necessidade da regra de se limitar 50% da área de parede (done)
 - Remover os 30cm de altura da regra de negócio da altura da porta
 - Modificar os inputs para aceitar objetos customizaveis, adicionando a um objeto uma chave (nome do objeto. Ex: Janela, porta, estante), e o valor sendo outro objeto com atributos altura e largura
 	- Provavelmente os elementos DOM terão que ser criado a partir de trigger, como um butão, ou gerados automaticamento por um input numérico.
