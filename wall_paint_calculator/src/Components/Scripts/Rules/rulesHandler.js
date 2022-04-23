@@ -1,4 +1,4 @@
-import appConfig from "../../AppConfig"
+import appConfig from "../../../AppConfig"
 import {
     checkMinMaxWallArea,
     checkDoorsRequirements,

@@ -1,5 +1,5 @@
-import appConfig from "../../AppConfig"
-import WallMath from "./WallMath"
+import appConfig from "../../../AppConfig"
+import WallMath from "../MatchClass/WallMath"
 
 export function checkMinMaxWallArea(props, index) {
 

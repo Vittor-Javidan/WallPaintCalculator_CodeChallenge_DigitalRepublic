@@ -1,6 +1,6 @@
 import resetFeedbackStates from "./resetFeedbackStates"
 import outputCalculations from "./outputCalculations"
-import rulesHandler from "./rulesHandler"
+import rulesHandler from "./Rules/rulesHandler"
 
 export default function feedbackUpdate(props) {
     

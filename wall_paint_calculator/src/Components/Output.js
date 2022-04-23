@@ -7,7 +7,6 @@ export default function Output() {
 
     const { walls } = useContext(AppContext)
 
-    //feedback states
     const [status, setStatus] = useState('Click "Refresh" to calculate')
     const [totalWallArea, setTotalWallArea] = useState(0)
     const [totalDoorArea, setTotalDoorArea] = useState(0)
