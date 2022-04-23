@@ -1,7 +1,7 @@
 import appConfig from "../../../AppConfig"
 import WallMath from "../MatchClass/WallMath"
 
-export function checkMinMaxWallArea(props, index) {
+function checkMinMaxWallArea(props, index) {
 
     const { walls, setStatus } = props
     const wallArea = WallMath.wallArea(walls, index)
@@ -15,7 +15,7 @@ export function checkMinMaxWallArea(props, index) {
         return setStatus(`Wall ${index + 1} cannot be more than 15 square meter`)
 }
 
-export function checkDoorsRequirements(props, index) {
+function checkDoorsRequirements(props, index) {
 
     const { walls, setStatus } = props
 
@@ -28,7 +28,7 @@ export function checkDoorsRequirements(props, index) {
         return setStatus(`Wall ${index + 1} width cannot allow a door`)
 }
 
-export function checkWindowsRequirements(props, index) {
+function checkWindowsRequirements(props, index) {
 
     const { walls, setStatus } = props
 
@@ -41,7 +41,7 @@ export function checkWindowsRequirements(props, index) {
         return setStatus(`Wall ${index + 1} width cannot have a window`)
 }
 
-export function checkWallAreaUsage(props, index) {
+function checkWallAreaUsage(props, index) {
 
     const {
         walls,
@@ -56,7 +56,7 @@ export function checkWallAreaUsage(props, index) {
         return setStatus(`Doors and window are using more than 50% of wall ${index + 1} area`)
 }
 
-export function checkWidthWallUsage(props, index) {
+function checkWidthWallUsage(props, index) {
 
     const { walls, setStatus } = props
 
@@ -69,3 +69,13 @@ export function checkWidthWallUsage(props, index) {
         return setStatus(`Wall ${index + 1} width cannot have that many doors and windows`)
     }
 }
+
+const rulesArray = [
+    checkMinMaxWallArea,
+    checkDoorsRequirements,
+    checkWindowsRequirements,
+    checkWallAreaUsage,
+    checkWidthWallUsage
+]
+
+export default rulesArray
