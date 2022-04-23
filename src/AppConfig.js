@@ -12,7 +12,7 @@ const appConfig = {
         HEIGHT: 1.2
     },
     START_INPUTS: {
-        WALL_HEIGHT: 2.2,
+        WALL_HEIGHT: 2.0,
         WALL_WIDTH: 5,
         DOORS_AMOUNT: 0,
         WINDOWS_AMOUNT: 0

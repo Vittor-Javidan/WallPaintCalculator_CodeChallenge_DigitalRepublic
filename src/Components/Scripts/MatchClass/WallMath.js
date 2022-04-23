@@ -17,7 +17,7 @@ export default class WallMath {
     static totalWallArea(wallsObject) {
 
         let totalArea = 0
-        for (let i = 0; i < appConfig.WALLS_AMMOUNT; i++) {
+        for (let i = 0; i < wallsObject.wallsAmount; i++) {
             totalArea += WallMath.wallArea(wallsObject, i)
         }
         return totalArea
@@ -26,7 +26,7 @@ export default class WallMath {
     static totalDoorArea(wallsObject) {
 
         let totalArea = 0
-        for (let i = 0; i < appConfig.WALLS_AMMOUNT; i++) {
+        for (let i = 0; i < wallsObject.wallsAmount; i++) {
             totalArea += WallMath.doorArea(wallsObject, i)
         }
         return totalArea
@@ -35,7 +35,7 @@ export default class WallMath {
     static totalWindowArea(wallsObject) {
 
         let totalArea = 0
-        for (let i = 0; i < appConfig.WALLS_AMMOUNT; i++) {
+        for (let i = 0; i < wallsObject.wallsAmount; i++) {
             totalArea += WallMath.windowArea(wallsObject, i)
         }
         return totalArea
