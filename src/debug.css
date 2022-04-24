@@ -1,0 +1,39 @@
+* {
+    margin: 1px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App-div {
+    border: 2px solid black;
+}
+
+.App-h1 {
+    border: 2px solid blue;
+    margin: 2px;
+}
+
+.Walls-form {
+    border: 2px solid blue;
+    margin: 2px;
+}
+
+.Walls-Inputs-div {
+    border: 2px solid red;
+    margin: 2px;
+}
+
+.WallConfig-div {
+    border: 2px solid red;
+    margin: 2px;
+}
+
+.ObjectConfig-div {
+    border: 2px solid green;
+    margin: 2px;
+}
+
+.Output-div {
+    border: 2px solid blue;
+    margin: 2px;
+}
