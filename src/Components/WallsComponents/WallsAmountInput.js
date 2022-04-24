@@ -10,7 +10,8 @@ export default function WallsAmountInput() {
     function wallsAmountInputHandler(e) {
 
         const wallsAmount = Number(e.target.value)
-        let wallsArray = [...walls.wall]
+        const wallObject = {...walls}
+        let wallsArray = wallObject.wall
 
         if (wallsAmount > wallsArray.length){
 
@@ -33,13 +34,10 @@ export default function WallsAmountInput() {
             }
         }
 
-        setWalls(prev => (
-            {
-                ...prev,
-                wallsAmount: wallsAmount,
-                wall: wallsArray
-            }
-        ))
+        wallObject.wallsAmount = wallsAmount
+        wallObject.wall = wallsArray
+
+        setWalls(wallObject)
     }
 
     return (

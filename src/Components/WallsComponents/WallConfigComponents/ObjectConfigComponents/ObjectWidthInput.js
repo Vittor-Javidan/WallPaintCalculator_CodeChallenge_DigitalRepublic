@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { AppContext } from "../../../../../App"
+import { AppContext } from "../../../../App"
 
 export default function ObjectWidthInput({ index_i, index_j }) {
 

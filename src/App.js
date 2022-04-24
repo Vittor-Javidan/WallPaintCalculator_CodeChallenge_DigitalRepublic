@@ -2,7 +2,7 @@ import {createContext, useState} from "react"
 import appConfig from "./AppConfig";
 
 import Output from "./Components/Output";
-import FormWallInputs from "./Components/FormWallInputs";
+import Walls from "./Components/Walls";
 
 export const AppContext = createContext()
 
@@ -37,7 +37,7 @@ export default function App() {
         <AppContext.Provider value={props}>
             <div className="App-div">
                 <h1 className="App-h1">Wall Paint Calculator</h1>
-                <FormWallInputs />
+                <Walls />
                 <Output />
             </div>
         </AppContext.Provider>
