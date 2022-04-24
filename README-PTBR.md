@@ -64,9 +64,10 @@ diferentes.
 	- Modificar os inputs para aceitar objetos customizaveis, adicionando a um objeto uma chave (nome do objeto. Ex: Janela, porta, estante), e o valor sendo outro objeto com atributos altura e largura
 	- Modificar os nomes dos componentes para algo mais legível e com mais sentido
 	- adicionar uma dependência para resolver caminhos relativos
+	- implementar a definição da regra checkWidthWallUsage() no arquivo rulesDefinitions.js
 
 - ### A fazer:
 
-	- implementar a definição da regra checkWidthWallUsage() no arquivo rulesDefinitions.js
+	- adicionar regra para alertar qualquer sobre input negativo nos status
 	- implemetar customização do volume de latas
 	- implementar customização do preço de cada lata

@@ -19,7 +19,21 @@ function checkMinWallArea(props, index) {
 }
 
 function checkWidthWallUsage(props, index) {
-    console.log('checkWidthWallUsage must be implemented')
+
+    const { walls, setStatus } = props
+    const objectsArrayLenght = walls.wall[index].wallObjects.length
+    const objectsArray = walls.wall[index].wallObjects
+    let totalObjectsWidth = 0
+
+    console.log(walls)
+
+    for(let i = 0; i < objectsArrayLenght; i++){
+        totalObjectsWidth += objectsArray[i].width
+    }
+
+    if( walls.wall[index].width < totalObjectsWidth )
+        return setStatus(`WARN: Wall ${index + 1} has less width than all objects width sum`)
+
 }
 
 function checkLayersAmount(props, index) {
