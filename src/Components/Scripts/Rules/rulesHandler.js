@@ -1,4 +1,4 @@
-import rulesArray from "./rulesDefinition"
+import rulesArray from 'Components/Scripts/Rules/rulesDefinition.js'
 
 export default function rulesHandler(props) {
 

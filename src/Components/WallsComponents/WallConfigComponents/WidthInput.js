@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { AppContext } from "../../../App";
+import { useContext } from 'react'
+import { AppContext } from 'App.js'
 
 export default function WidthInput({index}){
 
@@ -22,11 +22,11 @@ export default function WidthInput({index}){
     }
 
     return (
-        <div className="WidthInput-div">
-            <label className="WidthInput-label">Width</label>
+        <div className='WidthInput-div'>
+            <label className='WidthInput-label'>Width</label>
             <input
-                className="WidthInput-input" 
-                type={'number'}
+                className='WidthInput-input' 
+                type='number'
                 value={walls.wall[index].width}
                 onChange={widthHandler}
             />

@@ -1,4 +1,4 @@
-import appConfig from "../../../AppConfig"
+import appConfig from 'AppConfig.js'
 
 export default class WallMath {
 
@@ -20,7 +20,7 @@ export default class WallMath {
         let areaToPaint = (
             WallMath.totalWallArea(wallsObject)
         ) * wallsObject.inkLayers
-        let totalCans = ""
+        let totalCans = ''
 
         for (let i = 0; i < appConfig.CANS_SIZES.length; i++){
             const areaPerCan = appConfig.CANS_SIZES[i] * appConfig.INK_EFFICIENCY

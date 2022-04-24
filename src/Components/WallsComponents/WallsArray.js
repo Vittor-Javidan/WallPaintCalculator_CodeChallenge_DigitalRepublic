@@ -1,7 +1,7 @@
-import { AppContext } from "../../App";
-import { useContext } from "react";
+import { useContext } from 'react'
+import { AppContext } from 'App.js'
 
-import WallConfig from "./WallConfig";
+import WallConfig from 'Components/WallsComponents/WallConfig.js'
 
 export default function WallsArray (){
 

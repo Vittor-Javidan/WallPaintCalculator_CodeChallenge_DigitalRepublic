@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { AppContext } from "../../App"
+import { useContext } from 'react'
+import { AppContext } from 'App.js'
 
 export default function InkLayersInput() {
 
@@ -15,10 +15,10 @@ export default function InkLayersInput() {
     }
 
     return (
-        <div className="InkLayersInput-div">
+        <div className='InkLayersInput-div'>
             <label>ink layers/wall</label>
             <input
-                className="InkLayersInput-input"
+                className='InkLayersInput-input'
                 type='number'
                 value={walls.inkLayers}
                 onChange={changeInkLayersCount}

@@ -1,7 +1,7 @@
-import { useContext } from "react"
-import { AppContext } from "../../App"
+import { useContext } from 'react'
+import { AppContext } from 'App.js'
 
-import appConfig from "../../AppConfig"
+import appConfig from 'AppConfig.js'
 
 export default function WallsAmountInput() {
 
@@ -41,12 +41,13 @@ export default function WallsAmountInput() {
     }
 
     return (
-        <div className="WallsAmountInput-div">
-            <label className="WallsAmountInput-label">
+        <div className='WallsAmountInput-div'>
+            <label className='WallsAmountInput-label'>
                 Walls Amount
             </label>
             <input
-                className="WallsAmountInput-input"
+                className='WallsAmountInput-input'
+                type='number'
                 value={walls.wallsAmount}
                 onChange={wallsAmountInputHandler}
             />

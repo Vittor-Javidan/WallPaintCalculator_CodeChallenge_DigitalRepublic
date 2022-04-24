@@ -1,11 +1,11 @@
-import WallMath from "../MatchClass/WallMath"
+import WallMath from 'Components/Scripts/MatchClass/WallMath.js'
 
 function chackNegativeHeight(props, index) {
 
     const { walls, setStatus } = props
 
     if (walls.height < 0)
-        return setStatus(`WARN: Height is 0 or Negative`)
+        return setStatus('WARN: Height is 0 or Negative')
 
 }
 
@@ -19,7 +19,7 @@ function checkMinWallArea(props, index) {
 }
 
 function checkWidthWallUsage(props, index) {
-    console.log("checkWidthWallUsage must be implemented")
+    console.log('checkWidthWallUsage must be implemented')
 }
 
 function checkLayersAmount(props, index) {

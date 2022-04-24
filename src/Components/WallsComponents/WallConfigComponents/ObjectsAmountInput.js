@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { AppContext } from "../../../App"
+import { useContext } from 'react'
+import { AppContext } from 'App.js'
 
 export default function ObjectsAmountInput({ index }) {
 
@@ -39,10 +39,10 @@ export default function ObjectsAmountInput({ index }) {
     }
 
     return (
-        <div className="WallObjects.div">
+        <div className='WallObjects.div'>
             <label>ObjectsAmount</label>
             <input 
-                className="WallObjects-input"
+                className='WallObjects-input'
                 type='number'
                 onChange={objectsHandler}
                 value={walls.wall[index].wallObjectsAmount}

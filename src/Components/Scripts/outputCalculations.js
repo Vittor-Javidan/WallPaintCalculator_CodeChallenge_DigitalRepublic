@@ -1,4 +1,4 @@
-import WallMath from "./MatchClass/WallMath"
+import WallMath from 'Components/Scripts/MatchClass/WallMath.js'
 
 export default function outputCalculations(props) {
     

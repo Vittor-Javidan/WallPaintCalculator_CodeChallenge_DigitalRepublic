@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { AppContext } from "../../../../App"
+import { useContext } from 'react'
+import { AppContext } from 'App'
 
 export default function ObjectNameInput({ index_i,  index_j}) {
 
@@ -16,12 +16,12 @@ export default function ObjectNameInput({ index_i,  index_j}) {
     }
 
     return (
-        <div className="ObjectNameInput-div">
-            <label className="ObjectNameInput-label">
+        <div className='ObjectNameInput-div'>
+            <label className='ObjectNameInput-label'>
                 Name
             </label>
             <input
-                className="ObjectNameInput-input"
+                className='ObjectNameInput-input'
                 type='text'
                 value={walls.wall[index_i].wallObjects[index_j].name}
                 onChange={nameObjectsHandler}

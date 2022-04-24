@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { AppContext } from "../../App"
+import { useContext } from 'react'
+import { AppContext } from 'App'
 
 export default function HeightInput(){
 
@@ -15,11 +15,11 @@ export default function HeightInput(){
     }
 
     return (
-        <div className="HeightInput-div">
-            <label className="HeightInput-label">Walls Height</label>
+        <div className='HeightInput-div'>
+            <label className='HeightInput-label'>Walls Height</label>
             <input
-                className="HeightInput-input"
-                type={'number'}
+                className='HeightInput-input'
+                type='number'
                 value={walls.height}
                 onChange={heightHandler}
             />

@@ -1,7 +1,7 @@
-import { AppContext } from "../../../App"
-import { useContext } from "react"
+import { useContext } from 'react'
+import { AppContext } from "App.js"
 
-import ObjectConfig from "./ObjectConfig"
+import ObjectConfig from 'Components/WallsComponents/WallConfigComponents/ObjectConfig.js'
 
 export default function ObjectsArray({ index }){
 

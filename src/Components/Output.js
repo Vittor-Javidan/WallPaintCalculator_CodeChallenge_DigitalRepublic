@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
-import { AppContext } from '../App'
+import { AppContext } from 'App'
 
-import feedbackUpdate from './Scripts/feedBackUpdate'
+import feedbackUpdate from 'Components/Scripts/feedBackUpdate'
 
 export default function Output() {
 
@@ -9,7 +9,7 @@ export default function Output() {
 
     const [status, setStatus] = useState('Click "Calculate Cans" to calculate')
     const [totalWallArea, setTotalWallArea] = useState(0)
-    const [neededCans, setTotalCans] = useState("")
+    const [neededCans, setTotalCans] = useState('')
 
     const props = {
         walls           ,

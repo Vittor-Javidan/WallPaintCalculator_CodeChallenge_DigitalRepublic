@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { AppContext } from "../../../../App"
+import { useContext } from 'react'
+import { AppContext } from 'App.js'
 
 export default function ObjectHeightInput({ index_i, index_j }) {
 
@@ -16,12 +16,12 @@ export default function ObjectHeightInput({ index_i, index_j }) {
     }
 
     return (
-        <div className="ObjectHeightInput-div">
-            <label className="ObjectHeightInput-label">
+        <div className='ObjectHeightInput-div'>
+            <label className='ObjectHeightInput-label'>
                 Height
             </label>
             <input
-                className="ObjectHeightInput-input"
+                className='ObjectHeightInput-input'
                 type='number'
                 value={walls.wall[index_i].wallObjects[index_j].height}
                 onChange={heightObjectsHandler}
