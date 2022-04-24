@@ -9,7 +9,7 @@ export default function InkLayersInput() {
         setWalls(prev => (
             {
                 ...prev,
-                inkLayers: Number(e.target.value)
+                inkLayers: Math.floor(Number(e.target.value))
             }
         ))
     }

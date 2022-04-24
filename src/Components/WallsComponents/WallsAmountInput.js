@@ -9,13 +9,13 @@ export default function WallsAmountInput() {
 
     function wallsAmountInputHandler(e) {
 
-        const wallsAmount = Number(e.target.value)
+        const wallsAmount = Math.floor(Number(e.target.value))
         const wallObject = {...walls}
         let wallsArray = wallObject.wall
 
         if (wallsAmount > wallsArray.length){
 
-            let diff = Math.floor(wallsAmount) - wallsArray.length
+            let diff = wallsAmount - wallsArray.length
             for (let i = 0; i < diff; i++) {
                 wallsArray.push(
                     {
@@ -28,7 +28,7 @@ export default function WallsAmountInput() {
             
         } else {
 
-            let diff = wallsArray.length - Math.floor(wallsAmount)
+            let diff = wallsArray.length - wallsAmount
             for (let i = 0; i < diff; i++) {
                 wallsArray.pop()
             }

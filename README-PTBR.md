@@ -65,9 +65,11 @@ diferentes.
 	- Modificar os nomes dos componentes para algo mais legível e com mais sentido
 	- adicionar uma dependência para resolver caminhos relativos
 	- implementar a definição da regra checkWidthWallUsage() no arquivo rulesDefinitions.js
+	- adicionar regra para alertar qualquer sobre input negativo nos status
 
 - ### A fazer:
 
-	- adicionar regra para alertar qualquer sobre input negativo nos status
+	- adicionar a subtração da área dos objetos no cálculo final de tinta necessária
+	- adicionar um input para configurar a eficiencia da tinta
 	- implemetar customização do volume de latas
 	- implementar customização do preço de cada lata

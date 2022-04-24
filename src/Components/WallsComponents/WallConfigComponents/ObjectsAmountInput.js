@@ -7,7 +7,7 @@ export default function ObjectsAmountInput({ index }) {
 
     function objectsHandler(e) {
 
-        const objectsAmount = Number(e.target.value)
+        const objectsAmount = Math.floor(Number(e.target.value))
         const wallObject = {...walls}
         const objectsArray = wallObject.wall[index].wallObjects
         
