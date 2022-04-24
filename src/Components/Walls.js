@@ -7,9 +7,11 @@ export default function Walls() {
 
     return (
         <form className="Walls-form">
-            <WallsHeightInput />
-            <InkLayersInput />
-            <WallsAmountInput />
+            <div className="Walls-Inputs-div">
+                <WallsHeightInput />
+                <InkLayersInput />
+                <WallsAmountInput />
+            </div>
             <WallsArray />
         </form>
     )

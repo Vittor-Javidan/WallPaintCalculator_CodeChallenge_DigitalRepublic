@@ -43,7 +43,7 @@ export default function WallsAmountInput() {
     return (
         <div className="WallsAmountInput-div">
             <label className="WallsAmountInput-label">
-                How many walls?
+                Walls Amount
             </label>
             <input
                 className="WallsAmountInput-input"

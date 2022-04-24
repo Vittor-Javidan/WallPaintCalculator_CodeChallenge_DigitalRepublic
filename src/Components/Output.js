@@ -7,7 +7,7 @@ export default function Output() {
 
     const { walls } = useContext(AppContext)
 
-    const [status, setStatus] = useState('Click "Refresh" to calculate')
+    const [status, setStatus] = useState('Click "Calculate Cans" to calculate')
     const [totalWallArea, setTotalWallArea] = useState(0)
     const [neededCans, setTotalCans] = useState("")
 
@@ -27,7 +27,7 @@ export default function Output() {
                 className='Output-button'
                 onClick={()=>{feedbackUpdate(props)}}
             >
-                Refresh
+                Calculate Cans
             </button>
         </div>
     )
