@@ -10,6 +10,7 @@ export default class WallMethods {
     static getWallsAmount(walls_State) { return walls_State.wallsAmount }
     static getWallsHeight(walls_State) { return walls_State.height }
     static getWallWidth(walls_State, wall_index) { return walls_State.wall[wall_index].width }
+    static getWallInkEfficiency(walls_State) { return walls_State.inkEfficiency }
     
     static getWallObjectsAmount(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjectsAmount }
     static getWallObjectsArray(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjects }
@@ -55,6 +56,16 @@ export default class WallMethods {
             {
                 ...prev,
                 inkLayers: Math.floor(Number(layersAmount))
+            }
+        ))
+    }
+
+    static setWallsInkEfficiency(setWalls, efficiencyValue) {
+
+        setWalls(prev => (
+            {
+                ...prev,
+                inkEfficiency: Number(efficiencyValue)
             }
         ))
     }
@@ -225,7 +236,8 @@ export default class WallMethods {
         let totalCans = ''
 
         for (let i = 0; i < appConfig.CANS_SIZES.length; i++) {
-            const areaPerCan = appConfig.CANS_SIZES[i] * appConfig.INK_EFFICIENCY
+
+            const areaPerCan = appConfig.CANS_SIZES[i] * WallMethods.getWallInkEfficiency(walls_State)
 
             if (areaToPaint / areaPerCan >= 1 && appConfig.CANS_SIZES[i] > appConfig.CANS_SIZES[appConfig.CANS_SIZES.length - 1]) {
                 const cans = Math.floor(areaToPaint / areaPerCan)

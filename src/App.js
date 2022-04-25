@@ -24,8 +24,9 @@ export default function App() {
     const [walls, setWalls] = useState({
         height: appConfig.START_INPUTS.WALL_HEIGHT,
         wallsAmount: appConfig.WALLS_AMMOUNT,
+        inkLayers: appConfig.INK_LAYERS,
+        inkEfficiency: appConfig.INK_EFFICIENCY,
         wall: wallInit(),
-        inkLayers: appConfig.INK_LAYERS
     })
 
     const props = {
