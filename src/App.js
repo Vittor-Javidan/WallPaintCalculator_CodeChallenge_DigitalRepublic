@@ -12,6 +12,7 @@ function wallInit () {
     for(let i = 0; i < appConfig.WALLS_AMMOUNT; i++){
         wallsArray.push({
             width: appConfig.START_INPUTS.WALL_WIDTH,
+            duplicates: appConfig.START_INPUTS.DUPLICATES_AMOUNT,
             wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
             wallObjects: []
         })
@@ -33,7 +34,7 @@ export default function App() {
         walls,
         setWalls
     }
-            
+
     return (
         <AppContext.Provider value={props}>
             <div className='App-div'>

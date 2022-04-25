@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { AppContext } from 'App'
-import WallMethods from 'Components/Scripts/CustomClasses/WallMethods.js'
+import WallMethods from 'Components/Scripts/utilClasses/WallMethods.js'
 
 export default function HeightInput(){
 

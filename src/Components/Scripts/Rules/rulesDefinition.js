@@ -1,4 +1,4 @@
-import WallMethods from 'Components/Scripts/CustomClasses/WallMethods.js'
+import WallMethods from 'Components/Scripts/utilClasses/WallMethods.js'
 
 function checkNegativeHeight(walls_State, setStatus, wall_Index) {
 

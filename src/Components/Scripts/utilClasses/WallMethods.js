@@ -8,6 +8,7 @@ export default class WallMethods {
     static getWallsArrayLength(walls_State) { return walls_State.wall.length }
     static getWallsInkLayers(walls_State) { return walls_State.inkLayers }
     static getWallsAmount(walls_State) { return walls_State.wallsAmount }
+    static getWallDuplicatesAmount(walls_State, wall_index) { return walls_State.wall[wall_index].duplicates }
     static getWallsHeight(walls_State) { return walls_State.height }
     static getWallWidth(walls_State, wall_index) { return walls_State.wall[wall_index].width }
     static getWallInkEfficiency(walls_State) { return walls_State.inkEfficiency }
@@ -70,6 +71,18 @@ export default class WallMethods {
         ))
     }
 
+    static setWallDuplicatesAmount (setWalls, wall_index, duplicatesAmount) {
+
+        duplicatesAmount = Math.floor(Number(duplicatesAmount))
+        setWalls(prev => {
+
+            const newWalls = { ...prev }
+            newWalls.wall[wall_index].duplicates = duplicatesAmount
+
+            return newWalls
+        })
+    }
+
     static setWallsAmount(setWalls, wallsAmount) {
 
         wallsAmount = Math.floor(Number(wallsAmount))
@@ -87,6 +100,7 @@ export default class WallMethods {
                     wallsArray.push(
                         {
                             width: appConfig.START_INPUTS.WALL_WIDTH,
+                            duplicates: appConfig.START_INPUTS.DUPLICATES_AMOUNT,
                             wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
                             wallObjects: []
                         }
@@ -205,7 +219,7 @@ export default class WallMethods {
 
         let totalArea = 0
         for (let i = 0; i < WallMethods.getWallsAmount(walls_State); i++) {
-            totalArea += WallMethods.getWallArea(walls_State, i)
+            totalArea += WallMethods.getWallArea(walls_State, i) * WallMethods.getWallDuplicatesAmount(walls_State, i)
         }
         return totalArea
     }

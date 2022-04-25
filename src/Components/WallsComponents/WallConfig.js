@@ -1,4 +1,5 @@
 import WidthInput from 'Components/WallsComponents/WallConfigComponents/WidthInput.js'
+import WallDuplicates from './WallConfigComponents/WallDuplicates.js'
 import ObjectsAmountInput from 'Components/WallsComponents/WallConfigComponents/ObjectsAmountInput.js'
 import ObjectsArray from 'Components/WallsComponents/WallConfigComponents/ObjectsArray.js'
 
@@ -11,6 +12,7 @@ export default function WallConfig({ index }) {
             </h2>
             <div className='WallConfig-InputsDiv'>
                 <WidthInput index={index} />
+                <WallDuplicates index={index} />
                 <ObjectsAmountInput index={index} />
                 <ObjectsArray index={index} />
             </div>

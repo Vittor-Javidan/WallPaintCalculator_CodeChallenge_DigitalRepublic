@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from 'App'
 
-import WallMethods from './Scripts/CustomClasses/WallMethods.js'
+import WallMethods from './Scripts/utilClasses/WallMethods.js'
 
 export default function Output() {
 
