@@ -199,10 +199,28 @@ export default class WallMethods {
         return totalArea
     }
 
+    static getTotalObjectArea(walls_State) {
+
+        let totalObjectsArea = 0
+
+        for (let i = 0; i < WallMethods.getWallsAmount(walls_State); i++){
+            for (let j = 0; j < WallMethods.getWallObjectsAmount(walls_State, i); j++) {
+
+                totalObjectsArea += WallMethods.getWallObjectHeight(walls_State, i, j) * WallMethods.getWallObjectWidth(walls_State, i, j)
+            }
+        }
+
+        return totalObjectsArea
+    }
+
+    static getTotalAreaToPaint(walls_State) {
+        return WallMethods.getTotalWallArea(walls_State) - WallMethods.getTotalObjectArea(walls_State)
+    }
+
     static calculateCans(walls_State) {
 
         let areaToPaint = (
-            WallMethods.getTotalWallArea(walls_State)
+            WallMethods.getTotalAreaToPaint(walls_State)
         ) * walls_State.inkLayers
         let totalCans = ''
 
