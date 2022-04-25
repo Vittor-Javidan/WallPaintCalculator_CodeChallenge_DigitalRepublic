@@ -1,27 +1,21 @@
 import { useContext } from 'react'
 import { AppContext } from 'App.js'
+import WallMethods from 'Components/Scripts/CustomClasses/WallMethods.js'
 
 export default function InkLayersInput() {
 
     const { walls, setWalls } = useContext(AppContext)
 
-    function changeInkLayersCount(e) {
-        setWalls(prev => (
-            {
-                ...prev,
-                inkLayers: Math.floor(Number(e.target.value))
-            }
-        ))
-    }
-
     return (
         <div className='InkLayersInput-div'>
-            <label>ink layers/wall</label>
+            <label className='InkLayersInput-label'>
+                Demãos
+            </label>
             <input
                 className='InkLayersInput-input'
                 type='number'
-                value={walls.inkLayers}
-                onChange={changeInkLayersCount}
+                value={WallMethods.getWallsInkLayers(walls)}
+                onChange={(e)=> WallMethods.setWallsInkLayers(setWalls, e.target.value)}
             />
         </div>
     )

@@ -1,30 +1,21 @@
 import { useContext } from 'react'
 import { AppContext } from 'App'
+import WallMethods from 'Components/Scripts/CustomClasses/WallMethods.js'
 
 export default function ObjectNameInput({ index_i,  index_j}) {
 
     const { walls, setWalls } = useContext(AppContext)
 
-    function nameObjectsHandler(e){
-
-        const name = String(e.target.value)
-        const wallObject = {...walls}
-
-        wallObject.wall[index_i].wallObjects[index_j].name = name
-
-        setWalls(wallObject)
-    }
-
     return (
         <div className='ObjectNameInput-div'>
             <label className='ObjectNameInput-label'>
-                Name
+                Nome
             </label>
             <input
                 className='ObjectNameInput-input'
                 type='text'
-                value={walls.wall[index_i].wallObjects[index_j].name}
-                onChange={nameObjectsHandler}
+                value={WallMethods.getWallObjectName(walls, index_i, index_j)}
+                onChange={ (e) => WallMethods.setWallObjectName(setWalls,index_i, index_j, e.target.value)}
             />
         </div>
     )

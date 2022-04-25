@@ -73,3 +73,4 @@ diferentes.
 	- adicionar um input para configurar a eficiencia da tinta
 	- implemetar customização do volume de latas
 	- implementar customização do preço de cada lata
+	- implementar sistema de duplicatas para cada parede

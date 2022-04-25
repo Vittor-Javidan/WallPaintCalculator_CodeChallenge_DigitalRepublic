@@ -7,12 +7,14 @@ export default function Walls() {
 
     return (
         <form className='Walls-form'>
-            <div className='Walls-Inputs-div'>
+            <div className='Walls-Inputsdiv'>
                 <WallsHeightInput />
                 <InkLayersInput />
                 <WallsAmountInput />
             </div>
-            <WallsArray />
+            <div className='Walls-WallsArrayDiv'>
+                <WallsArray />
+            </div>
         </form>
     )
 }

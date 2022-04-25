@@ -6,12 +6,14 @@ export default function WallConfig({ index }) {
     
     return (
         <div className='WallConfig-div'>
-            <h2 className='WallConfig-label'>
-                {`Wall ${index + 1} Configuration: `}
+            <h2 className='WallConfig-h2'>
+                {`Parede ${index + 1}: `}
             </h2>
-            <WidthInput index={index} />
-            <ObjectsAmountInput index={index} />
-            <ObjectsArray index={index} />
+            <div className='WallConfig-InputsDiv'>
+                <WidthInput index={index} />
+                <ObjectsAmountInput index={index} />
+                <ObjectsArray index={index} />
+            </div>
         </div>
     )
 }

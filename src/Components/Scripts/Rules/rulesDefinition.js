@@ -1,67 +1,42 @@
-import WallMath from 'Components/Scripts/MatchClass/WallMath.js'
+import WallMethods from 'Components/Scripts/CustomClasses/WallMethods.js'
 
-function checkNegativeHeight(props, index) {
+function checkNegativeHeight(walls_State, setStatus, wall_Index) {
 
-    const { walls, setStatus } = props
-
-    if (walls.height < 0)
-        return setStatus('WARN: Height is 0 or Negative')
+    if (WallMethods.getWallsHeight(walls_State) <= 0)
+        return setStatus('AVISO: Altura das paredes possui valor 0 ou Negativo')
 
 }
 
-function checkLayersAmount(props, index) {
+function checkLayersAmount(walls_State, setStatus, wall_Index) {
 
-    const { walls, setStatus } = props
-
-    if (walls.inkLayers < 1)
-        return setStatus('WARN: ink layer < 1 makes no sense')
+    if (WallMethods.getWallsInkLayers(walls_State) < 1)
+        return setStatus('AVISO: valor de demãos é menor que 1')
 }
 
-function checkObjectsAmount(props, index) {
+function checkObjectsAmount(walls_State, setStatus, wall_Index) {
 
-    const { walls, setStatus } = props
-    const objectsAmount = walls.wall[index].wallObjectsAmount
-
-    if (objectsAmount < 0)
-        return setStatus(`WARN: Wall ${index + 1} have negative object amount value`)
+    if (WallMethods.getWallObjectsAmount(walls_State, wall_Index) < 0)
+        return setStatus(`AVISO: Parede ${wall_Index + 1} possui uma quantidade negativa de objetos`)
 }
 
-function checkObjectsMinArea(props, index) {
+function checkObjectsMinArea(walls_State, setStatus, wall_Index) {
 
-    const { walls, setStatus } = props
-    const objectsArray = walls.wall[index].wallObjects
-
-    objectsArray.forEach((object, Objectindex) => {
-        if(object.height * object.width <= 0)
-            setStatus(`WARN: Object ${Objectindex + 1} Wall ${index + 1} don't have a valid area`)
-    })
+    for (let i = 0; i < WallMethods.getWallObjectsAmount(walls_State, wall_Index); i++)
+        if(WallMethods.getWallObjectHeight(walls_State, wall_Index, i) * WallMethods.getWallObjectWidth(walls_State, wall_Index, i) <= 0)
+            setStatus(`AVISO: objeto ${i + 1} da Parede ${wall_Index + 1} não possui uma área válida`)
 }
 
-function checkMinWallArea(props, index) {
+function checkMinWallArea(walls_State, setStatus, wall_Index) {
 
-    const { walls, setStatus } = props
-    const wallArea = WallMath.wallArea(walls, index)
-
-    if (wallArea <= 0)
-        return setStatus(`WARN: Wall ${index + 1} don't have a valid área`)
+    if (WallMethods.getWallArea(walls_State, wall_Index) <= 0)
+        return setStatus(`AVISO: Parede ${wall_Index + 1} não possui uma área válida`)
 }
 
-function checkWidthWallUsage(props, index) {
+function checkWidthWallUsage(walls_State, setStatus, wall_Index) {
 
-    const { walls, setStatus } = props
-    const objectsArrayLenght = walls.wall[index].wallObjects.length
-    const objectsArray = walls.wall[index].wallObjects
-    let totalObjectsWidth = 0
+    if (WallMethods.getWallWidth(walls_State, wall_Index) < WallMethods.getWallTotalObjectsWidth(walls_State, wall_Index))
+        return setStatus(`AVISO: largura da Parede ${wall_Index + 1} é menor que a soma das larguras de seus objetos`)
 
-    console.log(walls)
-
-    for (let i = 0; i < objectsArrayLenght; i++) {
-        totalObjectsWidth += objectsArray[i].width
-    }
-
-    if (walls.wall[index].width < totalObjectsWidth)
-        return setStatus(`WARN: Wall ${index + 1} has less width than all objects width sum`)
-    
 }
 
 const rulesArray = [ // Last array indexes has priority in status message

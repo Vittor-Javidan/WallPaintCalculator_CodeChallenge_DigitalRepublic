@@ -1,55 +1,22 @@
 import { useContext } from 'react'
 import { AppContext } from 'App.js'
 
-import appConfig from 'AppConfig.js'
+import WallMethods from 'Components/Scripts/CustomClasses/WallMethods.js'
 
 export default function WallsAmountInput() {
 
     const { walls, setWalls } = useContext(AppContext)
 
-    function wallsAmountInputHandler(e) {
-
-        const wallsAmount = Math.floor(Number(e.target.value))
-        const wallObject = {...walls}
-        let wallsArray = wallObject.wall
-
-        if (wallsAmount > wallsArray.length){
-
-            let diff = wallsAmount - wallsArray.length
-            for (let i = 0; i < diff; i++) {
-                wallsArray.push(
-                    {
-                        width: appConfig.START_INPUTS.WALL_WIDTH,
-                        wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
-                        wallObjects: []
-                    }
-                )
-            }
-            
-        } else {
-
-            let diff = wallsArray.length - wallsAmount
-            for (let i = 0; i < diff; i++) {
-                wallsArray.pop()
-            }
-        }
-
-        wallObject.wallsAmount = wallsAmount
-        wallObject.wall = wallsArray
-
-        setWalls(wallObject)
-    }
-
     return (
         <div className='WallsAmountInput-div'>
             <label className='WallsAmountInput-label'>
-                Walls Amount
+                Quantidade de paredes
             </label>
             <input
                 className='WallsAmountInput-input'
                 type='number'
-                value={walls.wallsAmount}
-                onChange={wallsAmountInputHandler}
+                value={WallMethods.getWallsAmount(walls)}
+                onChange={(e) => WallMethods.setWallsAmount(setWalls, e.target.value)}
             />
         </div>
     )

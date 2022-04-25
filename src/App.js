@@ -36,7 +36,9 @@ export default function App() {
     return (
         <AppContext.Provider value={props}>
             <div className='App-div'>
-                <h1 className='App-h1'>Wall Paint Calculator</h1>
+                <h1 className='App-h1'>
+                    Calculadora de tinta de parede
+                </h1>
                 <Walls />
                 <Output />
             </div>
