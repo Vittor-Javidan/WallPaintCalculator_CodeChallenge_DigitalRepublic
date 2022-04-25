@@ -73,3 +73,5 @@ diferentes.
 - ### A fazer:
 	- implemetar customização do volume de latas
 	- implementar customização do preço de cada lata
+	- Formatar os inputs para que nunca fiquem com valores negativos
+	- Adicionar limitar e adicionar inputs para o usuário definir qual o valore de paredes máximas ou objetos máximos caso ele deseje expandir o limite padrão 

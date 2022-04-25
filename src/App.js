@@ -11,8 +11,8 @@ function wallInit () {
     const wallsArray = []
     for(let i = 0; i < appConfig.WALLS_AMMOUNT; i++){
         wallsArray.push({
-            width: appConfig.START_INPUTS.WALL_WIDTH,
-            duplicates: appConfig.START_INPUTS.DUPLICATES_AMOUNT,
+            width: appConfig.WALL_WIDTH,
+            duplicates: appConfig.DUPLICATES_AMOUNT,
             wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
             wallObjects: []
         })
@@ -23,7 +23,7 @@ function wallInit () {
 export default function App() {
 
     const [walls, setWalls] = useState({
-        height: appConfig.START_INPUTS.WALL_HEIGHT,
+        height: appConfig.WALL_HEIGHT,
         wallsAmount: appConfig.WALLS_AMMOUNT,
         inkLayers: appConfig.INK_LAYERS,
         inkEfficiency: appConfig.INK_EFFICIENCY,

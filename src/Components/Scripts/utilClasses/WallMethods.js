@@ -99,8 +99,8 @@ export default class WallMethods {
                 for (let i = 0; i < diff; i++) {
                     wallsArray.push(
                         {
-                            width: appConfig.START_INPUTS.WALL_WIDTH,
-                            duplicates: appConfig.START_INPUTS.DUPLICATES_AMOUNT,
+                            width: appConfig.WALL_WIDTH,
+                            duplicates: appConfig.DUPLICATES_AMOUNT,
                             wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
                             wallObjects: []
                         }
