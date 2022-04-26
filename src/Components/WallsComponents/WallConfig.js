@@ -6,16 +6,16 @@ import ObjectsArray from 'Components/WallsComponents/WallConfigComponents/Object
 export default function WallConfig({ index }) {
     
     return (
-        <div className='WallConfig-div'>
-            <h2 className='WallConfig-h2'>
+        <div className='WallForm'>
+            <h2 className='WallTitle'>
                 {`Parede ${index + 1}: `}
             </h2>
-            <div className='WallConfig-InputsDiv'>
+            <div className='WallInputs'>
                 <WidthInput index={index} />
                 <WallDuplicates index={index} />
                 <ObjectsAmountInput index={index} />
             </div>
-            <div className='WallConfig-ArrayDiv'>
+            <div className='ObjectsArray'>
                 <ObjectsArray index={index} />
             </div>
         </div>

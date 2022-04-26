@@ -9,10 +9,10 @@ import WallsArray from 'Components/WallsComponents/WallsArray.js'
 export default function Walls() {
 
     return (
-        <form className='Walls-form'>
-            <div className='Walls-Configdiv'>
-                <h2 className='Walls-Configh2'>Configurações: </h2>
-                <div className='Walls-ConfigInputsDiv'>
+        <form className='Appform'>
+            <div className='ConfigurationForm'>
+                <h2 className='ConfigurationTitle'>Configurações: </h2>
+                <div className='ConfigurationIputs'>
                     <WallsHeightInput />
                     <InkLayersInput />
                     <InkEfficiencyInput />
@@ -21,7 +21,7 @@ export default function Walls() {
                     <CansPricesInput />
                 </div>
             </div>
-            <div className='Walls-WallsArrayDiv'>
+            <div>
                 <WallsArray />
             </div>
         </form>

@@ -1,10 +1,9 @@
 import {createContext, useState} from 'react'
 import appConfig from 'AppConfig.js'
 
-import WallMethods from 'Components/Scripts/utilClasses/WallMethods.js'
-
-import Output from 'Components/Output.js'
 import Walls from 'Components/Walls.js'
+import Output from 'Components/Output.js'
+import CalculationButton from 'Components/CalculationButton.js'
 
 export const AppContext = createContext()
 
@@ -42,23 +41,14 @@ export default function App() {
         setWalls
     }
 
-    console.log(walls)
-
     return (
         <AppContext.Provider value={props}>
-            <div className='App-div'>
-                <h1 className='App-h1'>
+            <div className='AppBody'>
+                <h1 className='AppTitle'>
                     Calculadora de latas de tinta
                 </h1>
                 <Walls />
-                <button
-                    onClick={()=>{
-                        WallMethods.calculateCans(setWalls)
-                        WallMethods.calculateTotalPrice(setWalls)
-                    }}
-                >
-                    Calcular
-                </button>
+                <CalculationButton />
                 <Output />
             </div>
         </AppContext.Provider>

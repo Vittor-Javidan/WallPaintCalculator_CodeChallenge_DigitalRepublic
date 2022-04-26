@@ -8,18 +8,18 @@ body {
     background-color: #EDE0D4;
 }
 
-.App-div {
+.AppBody {
     border: 1px black solid;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #7F5539;
 
     display: flex;
     flex-direction: column;
 }
 
-.App-h1 {
+.AppTitle {
     border: 1px black solid;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #EDE0D4;
     color: #7F5539;
 
@@ -27,55 +27,55 @@ body {
     justify-content: space-evenly;
 }
 
-.Walls-form {
+.Appform {
     border: 1px black solid;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #EDE0D4;
 }
 
-.Walls-Configdiv {
+.ConfigurationForm {
     border: 1px black solid;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #7F5539;
     color: #EDE0D4;
 }
 
-.Walls-Configh2, .WallConfig-h2 {
+.ConfigurationTitle, .WallTitle {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.Walls-ConfigInputsDiv, .WallConfig-InputsDiv {
+.ConfigurationIputs, .WallInputs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.Walls-ConfigInputsDiv > div,
-.WidthInput-div, .WallDuplicates-div, .ObjectsAmountInput-div {
+.ConfigurationIputs > div,
+.WallInputs > div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.WallConfig-div {
+.WallForm {
     border: 1px black solid;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #7F5539;
     color: #EDE0D4;
 }
 
-.WallConfig-ArrayDiv{
+.ObjectsArray{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.ObjectConfig-div {
+.ObjectForm {
     border: 1px black solid;
     background-color: #EDE0D4;
-    border-radius: 10px;
+    border-radius: 5px;
     color: #7F5539;
 
     display: flex;
@@ -84,15 +84,23 @@ body {
     align-items: center;
 }
 
-.ObjectNameInput-div, .ObjectWidthInput-div, .ObjectHeightInput-div {
+.ObjectInput > div {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.Output-div {
+.CalculationButton {
+    border-radius: 5px;
+    background-color: #EDE0D4;
+    color: #7F5539;
+    height: 2rem;
+    font-size: 1.2rem;
+}
+
+.FeedBack {
     border: 1px black solid;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #EDE0D4;
     color: #7F5539;
 

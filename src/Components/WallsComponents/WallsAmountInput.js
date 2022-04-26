@@ -8,12 +8,11 @@ export default function WallsAmountInput() {
     const { walls, setWalls } = useContext(AppContext)
 
     return (
-        <div className='WallsAmountInput-div'>
-            <label className='WallsAmountInput-label'>
+        <div>
+            <label>
                 Quantidade de paredes
             </label>
             <input
-                className='WallsAmountInput-input'
                 type='number'
                 value={WallMethods.getWallsAmount(walls)}
                 onChange={(e) => WallMethods.setWallsAmount(setWalls, e.target.value)}

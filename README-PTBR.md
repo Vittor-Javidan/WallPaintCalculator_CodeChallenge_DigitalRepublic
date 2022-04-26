@@ -72,10 +72,11 @@ diferentes.
 	- Adicionar uma regra para comparar a altura do objeto com a altura da parede
 	- implemetar customização do volume de latas
 	- implementar customização do preço de cada lata
+	- escolher nomes melhores de classe para cada div no JSX de cada componente
 
 - ### A fazer:
 
 	- Formatar os inputs para que nunca fiquem com valores negativos
 	- Adicionar limitar e adicionar inputs para o usuário definir qual o valore de paredes máximas ou objetos máximos caso ele deseje expandir o limite padrão
 	- Adicionar um getObjectArea no WallMethods
-	- escolher nomes melhores de classe para cada div no JSX de cada componente
+	

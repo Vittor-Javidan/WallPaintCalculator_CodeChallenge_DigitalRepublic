@@ -7,12 +7,11 @@ export default function HeightInput(){
     const {walls, setWalls} = useContext(AppContext)
 
     return (
-        <div className='HeightInput-div'>
-            <label className='HeightInput-label'>
+        <div>
+            <label>
                 Altura das paredes (m2)
             </label>
             <input
-                className='HeightInput-input'
                 type='number'
                 value={WallMethods.getWallsHeight(walls)}
                 onChange={(e)=> WallMethods.setWallsHeight(setWalls, e.target.value)}

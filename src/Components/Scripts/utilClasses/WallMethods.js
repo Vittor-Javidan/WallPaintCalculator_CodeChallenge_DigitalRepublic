@@ -337,9 +337,6 @@ export default class WallMethods {
             let totalPrice = 0
             const cansAmountArray = WallMethods.getCansAmountArray(prev)
 
-            console.log(`from calculateTotalPrice: ${cansAmountArray}`)
-            console.log(this.getTotalCans(prev))
-
             if (pricesArray.length === cansAmountArray.length)
                 for (let i = 0; i < cansAmountArray.length; i++){
                     totalPrice += pricesArray[i] * cansAmountArray[i]

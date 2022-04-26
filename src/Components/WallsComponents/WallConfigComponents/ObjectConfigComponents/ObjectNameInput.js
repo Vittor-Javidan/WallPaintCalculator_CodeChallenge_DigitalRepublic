@@ -7,12 +7,11 @@ export default function ObjectNameInput({ index_i,  index_j}) {
     const { walls, setWalls } = useContext(AppContext)
 
     return (
-        <div className='ObjectNameInput-div'>
-            <label className='ObjectNameInput-label'>
+        <div>
+            <label>
                 Nome (m2)
             </label>
             <input
-                className='ObjectNameInput-input'
                 type='text'
                 value={WallMethods.getWallObjectName(walls, index_i, index_j)}
                 onChange={ (e) => WallMethods.setWallObjectName(setWalls,index_i, index_j, e.target.value)}

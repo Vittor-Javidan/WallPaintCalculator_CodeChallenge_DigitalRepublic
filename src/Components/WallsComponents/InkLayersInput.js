@@ -7,12 +7,11 @@ export default function InkLayersInput() {
     const { walls, setWalls } = useContext(AppContext)
 
     return (
-        <div className='InkLayersInput-div'>
-            <label className='InkLayersInput-label'>
+        <div>
+            <label>
                 Demãos
             </label>
             <input
-                className='InkLayersInput-input'
                 type='number'
                 value={WallMethods.getWallsInkLayers(walls)}
                 onChange={(e)=> WallMethods.setWallsInkLayers(setWalls, e.target.value)}

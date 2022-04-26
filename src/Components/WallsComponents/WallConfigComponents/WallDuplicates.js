@@ -7,12 +7,11 @@ export default function WallDuplicates({index}){
     const {walls, setWalls} = useContext(AppContext)
 
     return (
-        <div className='WallDuplicates-div'>
-            <label className='WallDuplicates-label'>
+        <div>
+            <label>
                 Duplicatas
             </label>
-            <input
-                className='WallDuplicates-input' 
+            <input 
                 type='number'
                 value={WallMethods.getWallDuplicatesAmount(walls, index)}
                 onChange={(e) => WallMethods.setWallDuplicatesAmount(setWalls, index, e.target.value)}

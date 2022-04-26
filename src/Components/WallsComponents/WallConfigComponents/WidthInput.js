@@ -7,12 +7,11 @@ export default function WidthInput({index}){
     const {walls, setWalls} = useContext(AppContext)
 
     return (
-        <div className='WidthInput-div'>
-            <label className='WidthInput-label'>
+        <div>
+            <label>
                 Largura (m2)
             </label>
-            <input
-                className='WidthInput-input' 
+            <input 
                 type='number'
                 value={WallMethods.getWallWidth(walls, index)}
                 onChange={(e) => WallMethods.setWallWidth(setWalls, index, e.target.value)}

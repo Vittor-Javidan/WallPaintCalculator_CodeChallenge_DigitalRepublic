@@ -13,7 +13,7 @@ export default function Output() {
     }, [walls])
 
     return (
-        <div className='Output-div'>
+        <div className='FeedBack'>
             <h2>{status}</h2>
             <h2>Área total de parede: {WallMethods.getTotalWallArea(walls)} m2</h2>
             <h2>Área somada dos objetos: {WallMethods.getTotalObjectArea(walls)} m2</h2>
