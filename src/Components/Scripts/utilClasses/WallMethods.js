@@ -21,6 +21,12 @@ export default class WallMethods {
     static getWallObjectName(walls_State, wall_Index, object_Index) { return walls_State.wallsArray[wall_Index].objectsArray[object_Index].name }
 
     static getCansString(walls_State) { return walls_State.cansString }
+    static getCansPriceString(walls_State) { return walls_State.cansPricesString }
+    static getCansAmountArray(walls_State) { return walls_State.cansAmount }
+    static getCansAmountArrayLenght(walls_State) { return walls_State.cansAmount.length }
+    static getTotalCans(walls_State) { return walls_State.totalCans }
+    static getTotalPrice(walls_State) { return walls_State.totalPrice }
+    static getPricesArrayLength(walls_State) { return walls_State.pricesArray.length }
 
     static getWallArea(walls_State, wall_index) {
         return WallMethods.getWallWidth(walls_State, wall_index) * WallMethods.getWallsHeight(walls_State)
@@ -75,8 +81,9 @@ export default class WallMethods {
 
     static setWallDuplicatesAmount(setWalls, wall_index, duplicatesAmount) {
 
-        duplicatesAmount = Math.floor(Number(duplicatesAmount))
         setWalls(prev => {
+
+            duplicatesAmount = Math.floor(Number(duplicatesAmount))
 
             const newWalls = { ...prev }
             newWalls.wallsArray[wall_index].duplicates = duplicatesAmount
@@ -87,9 +94,9 @@ export default class WallMethods {
 
     static setWallsAmount(setWalls, wallsAmount) {
 
-        wallsAmount = Math.floor(Number(wallsAmount))
-
         setWalls(prev => {
+
+            wallsAmount = Math.floor(Number(wallsAmount))
 
             const wallsArray = prev.wallsArray
             const wallsArrayLength = wallsArray.length
@@ -127,9 +134,9 @@ export default class WallMethods {
 
     static setWallObjectsAmount(setWalls, wall_index, objectsAmount) {
 
-        objectsAmount = Math.floor(Number(objectsAmount))
-
         setWalls(prev => {
+
+            objectsAmount = Math.floor(Number(objectsAmount))
 
             let wallsArray = prev.wallsArray
             const objectsArray = wallsArray[wall_index].objectsArray
@@ -218,6 +225,16 @@ export default class WallMethods {
         })
     }
 
+    static setCansPricesString(setWalls, cansPricesString) {
+
+        setWalls(prev => {
+            return {
+                ...prev,
+                cansPricesString: cansPricesString
+            }
+        })
+    }
+
     static getWallTotalObjectsWidth(walls_State, wall_index) {
 
         let totalObjectsWidth = 0
@@ -254,6 +271,88 @@ export default class WallMethods {
         return WallMethods.getTotalWallArea(walls_State) - WallMethods.getTotalObjectArea(walls_State)
     }
 
+    static calculateCans(setWalls) {
+
+        setWalls(prev => {
+
+            let totalCans = ''
+            let areaToPaint = (
+                WallMethods.getTotalAreaToPaint(prev)
+            ) * prev.inkLayers
+            const cansAmountArray = []
+    
+            // Converts the cansString into a Number array, removing any invalid element
+            const rawArray = prev.cansString.split(';')
+            const cansArray = []
+            for (let i = 0; i < rawArray.length; i++) {
+                if (!isNaN(rawArray[i])) {
+                    cansArray.push(Number(rawArray[i]))
+                    cansArray.sort((a, b) => b - a)
+                }
+            }
+    
+            // Loops through cansArray and calculate how many cans its needed to paint the wall area
+            for (let i = 0; i < cansArray.length; i++) {
+    
+                const areaPerCan = cansArray[i] * WallMethods.getWallInkEfficiency(prev)
+    
+                if (areaToPaint / areaPerCan >= 0 && areaToPaint !== 0) {
+    
+                    let cans = 0
+                    i !== cansArray.length - 1
+                        ? cans = Math.floor(areaToPaint / areaPerCan)
+                        : cans = Math.ceil(areaToPaint / areaPerCan)
+    
+                    areaToPaint = areaToPaint - areaPerCan * cans
+                    cansAmountArray.push(cans)
+    
+                    totalCans += `${cans} latas de ${cansArray[i]}L / `
+                } else {
+                    cansAmountArray.push(0)
+                }
+            }
+
+            return {
+                ...prev,
+                cansAmount: cansAmountArray,
+                totalCans: totalCans
+            }
+        })
+    }
+
+    static calculateTotalPrice(setWalls) {
+
+        setWalls(prev => {
+
+            // Converts the cansPricesString into a Number array, removing any invalid element
+            const rawArray = prev.cansPricesString.split(';')
+            const pricesArray = []
+            for (let i = 0; i < rawArray.length; i++) {
+                if (!isNaN(rawArray[i])) {
+                    pricesArray.push(Number(rawArray[i]))
+                    pricesArray.sort((a, b) => b - a)
+                }
+            }
+
+            let totalPrice = 0
+            const cansAmountArray = WallMethods.getCansAmountArray(prev)
+
+            console.log(`from calculateTotalPrice: ${cansAmountArray}`)
+            console.log(this.getTotalCans(prev))
+
+            if (pricesArray.length === cansAmountArray.length)
+                for (let i = 0; i < cansAmountArray.length; i++){
+                    totalPrice += pricesArray[i] * cansAmountArray[i]
+                }
+
+            return {
+                ...prev,
+                pricesArray: pricesArray,
+                totalPrice: totalPrice
+            }
+        })
+    }
+
     static verifyConditions(walls_State, setStatus) {
 
         setStatus('ok')
@@ -264,44 +363,5 @@ export default class WallMethods {
                 element(walls_State, setStatus, i)
             });
         }
-    }
-
-    static calculateCans(walls_State) {
-
-        console.log(walls_State)
-        
-        let totalCans = ''
-        let areaToPaint = (
-            WallMethods.getTotalAreaToPaint(walls_State)
-        ) * walls_State.inkLayers
-
-        // Converts the cansString into a Number array, removing any invalid element
-        const rawArray = walls_State.cansString.split(';')
-        const cansArray = []
-        for (let i = 0; i < rawArray.length; i++) {
-            if (!isNaN(rawArray[i])) {
-                cansArray.push(Number(rawArray[i]))
-                cansArray.sort((a, b) => b - a)
-            }
-        }
-
-        // Loops through cansArray and calculate how many cans its needed to paint the wall area
-        for (let i = 0; i < cansArray.length; i++) {
-
-            const areaPerCan = cansArray[i] * WallMethods.getWallInkEfficiency(walls_State)
-
-            if (areaToPaint / areaPerCan >= 0 && areaToPaint !== 0) {
-
-                let cans
-                i !== cansArray.length -1
-                    ? cans = Math.floor(areaToPaint / areaPerCan)
-                    : cans = Math.ceil(areaToPaint / areaPerCan)
-
-                areaToPaint = areaToPaint - areaPerCan * cans
-                totalCans += `${cans} latas de ${cansArray[i]}L / `
-            }
-        }
-
-        return totalCans
     }
 }

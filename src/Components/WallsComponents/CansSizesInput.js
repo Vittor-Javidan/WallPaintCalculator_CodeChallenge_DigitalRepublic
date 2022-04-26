@@ -1,7 +1,7 @@
-import { AppContext } from "App";
-import { useContext } from "react";
+import { AppContext } from "App"
+import { useContext } from "react"
 
-import WallMethods from "Components/Scripts/utilClasses/WallMethods";
+import WallMethods from "Components/Scripts/utilClasses/WallMethods"
 
 export default function CansSizesInput() {
 

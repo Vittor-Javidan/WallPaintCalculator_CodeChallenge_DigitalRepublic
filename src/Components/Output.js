@@ -18,7 +18,8 @@ export default function Output() {
             <h2>Área total de parede: {WallMethods.getTotalWallArea(walls)} m2</h2>
             <h2>Área somada dos objetos: {WallMethods.getTotalObjectArea(walls)} m2</h2>
             <h2>Área total a ser pintada: {WallMethods.getTotalAreaToPaint(walls)} m2</h2>
-            <h2>Total de latas de tinta: {WallMethods.calculateCans(walls)}</h2>
+            <h2>Total de latas de tinta: {WallMethods.getTotalCans(walls)}</h2>
+            <h2>Preço total gasto em tinta: {WallMethods.getTotalPrice(walls)}</h2>
         </div>
     )
 }

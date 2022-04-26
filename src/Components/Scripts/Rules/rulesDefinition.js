@@ -44,8 +44,15 @@ function checkHeightWallUsage(walls_State, setStatus, wall_Index) {
             return setStatus(`AVISO: Altura da Parede ${wall_Index + 1} é menor que a Altura do objeto ${i + 1}`)
 }
 
+function checkPricesAndCansArraysLenght(walls_State, setStatus) {
+
+    if(WallMethods.getCansAmountArrayLenght(walls_State) !== WallMethods.getPricesArrayLength(walls_State))
+        setStatus('AVISO: A quantidade de latas e seus preços precisa ser a mesma')
+}
+
 const rulesArray = [ // Last array indexes has priority in status message
 
+    checkPricesAndCansArraysLenght,
     checkObjectsMinArea,
     checkObjectsAmount,
     checkLayersAmount,

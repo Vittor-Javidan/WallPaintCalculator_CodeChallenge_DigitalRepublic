@@ -1,6 +1,8 @@
 import {createContext, useState} from 'react'
 import appConfig from 'AppConfig.js'
 
+import WallMethods from 'Components/Scripts/utilClasses/WallMethods.js'
+
 import Output from 'Components/Output.js'
 import Walls from 'Components/Walls.js'
 
@@ -28,6 +30,10 @@ export default function App() {
         inkLayers: appConfig.INK_LAYERS,
         inkEfficiency: appConfig.INK_EFFICIENCY,
         cansString: appConfig.CANS_SIZES,
+        cansAmount: appConfig.CANS_AMOUNT_ARRAY,
+        cansPricesString: appConfig.CANS_PRICES_STRING,
+        pricesArray: appConfig.CANS_PRICES,
+        totalCans: appConfig.TOTAL_CANS,
         wallsArray: wallInit(),
     })
 
@@ -36,6 +42,8 @@ export default function App() {
         setWalls
     }
 
+    console.log(walls)
+
     return (
         <AppContext.Provider value={props}>
             <div className='App-div'>
@@ -43,6 +51,14 @@ export default function App() {
                     Calculadora de latas de tinta
                 </h1>
                 <Walls />
+                <button
+                    onClick={()=>{
+                        WallMethods.calculateCans(setWalls)
+                        WallMethods.calculateTotalPrice(setWalls)
+                    }}
+                >
+                    Calcular
+                </button>
                 <Output />
             </div>
         </AppContext.Provider>
