@@ -69,9 +69,12 @@ diferentes.
 	- adicionar a subtração da área dos objetos no cálculo final de tinta necessária
 	- adicionar um input para configurar a eficiencia da tinta
 	- implementar sistema de duplicatas para cada parede
+	- Adicionar uma regra para comparar a altura do objeto com a altura da parede
 
 - ### A fazer:
 	- implemetar customização do volume de latas
 	- implementar customização do preço de cada lata
 	- Formatar os inputs para que nunca fiquem com valores negativos
-	- Adicionar limitar e adicionar inputs para o usuário definir qual o valore de paredes máximas ou objetos máximos caso ele deseje expandir o limite padrão 
+	- Adicionar limitar e adicionar inputs para o usuário definir qual o valore de paredes máximas ou objetos máximos caso ele deseje expandir o limite padrão
+	- Adicionar um getObjectArea no WallMethods
+	- escolher nomes melhores de classe para cada div no JSX de cada componente

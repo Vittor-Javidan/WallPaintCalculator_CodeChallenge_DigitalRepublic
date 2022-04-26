@@ -4,7 +4,6 @@ function checkNegativeHeight(walls_State, setStatus, wall_Index) {
 
     if (WallMethods.getWallsHeight(walls_State) <= 0)
         return setStatus('AVISO: Altura das paredes possui valor 0 ou Negativo')
-
 }
 
 function checkLayersAmount(walls_State, setStatus, wall_Index) {
@@ -36,7 +35,13 @@ function checkWidthWallUsage(walls_State, setStatus, wall_Index) {
 
     if (WallMethods.getWallWidth(walls_State, wall_Index) < WallMethods.getWallTotalObjectsWidth(walls_State, wall_Index))
         return setStatus(`AVISO: largura da Parede ${wall_Index + 1} é menor que a soma das larguras de seus objetos`)
+}
 
+function checkHeightWallUsage(walls_State, setStatus, wall_Index) {
+
+    for(let i = 0; i < WallMethods.getWallObjectsAmount(walls_State,wall_Index); i++)
+        if (WallMethods.getWallsHeight(walls_State) < WallMethods.getWallObjectHeight(walls_State, wall_Index, i))
+            return setStatus(`AVISO: Altura da Parede ${wall_Index + 1} é menor que a Altura do objeto ${i + 1}`)
 }
 
 const rulesArray = [ // Last array indexes has priority in status message
@@ -44,6 +49,7 @@ const rulesArray = [ // Last array indexes has priority in status message
     checkObjectsMinArea,
     checkObjectsAmount,
     checkLayersAmount,
+    checkHeightWallUsage,
     checkWidthWallUsage,
     checkMinWallArea,
     checkNegativeHeight

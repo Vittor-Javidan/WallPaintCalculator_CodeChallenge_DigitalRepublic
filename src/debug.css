@@ -1,39 +1,105 @@
 * {
-    margin: 1px;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
     box-sizing: border-box;
 }
 
+body {
+    background-color: #EDE0D4;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .App-div {
-    border: 2px solid black;
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #7F5539;
+
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
 }
 
 .App-h1 {
-    border: 2px solid blue;
-    margin: 2px;
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #EDE0D4;
+    color: #7F5539;
+
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .Walls-form {
-    border: 2px solid blue;
-    margin: 2px;
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #EDE0D4;
 }
 
-.Walls-Inputsdiv {
-    border: 2px solid red;
-    margin: 2px;
+.Walls-Configdiv {
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #7F5539;
+    color: #EDE0D4;
+}
+
+.Walls-Configh2, .WallConfig-h2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.Walls-ConfigInputsDiv, .WallConfig-InputsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.HeightInput-div, .InkLayersInput-div, .InkEfficiencyInput-div, .WallsAmountInput-div,
+.WidthInput-div, .WallDuplicates-div, .ObjectsAmountInput-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .WallConfig-div {
-    border: 2px solid red;
-    margin: 2px;
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #7F5539;
+    color: #EDE0D4;
+}
+
+.WallConfig-ArrayDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .ObjectConfig-div {
-    border: 2px solid green;
-    margin: 2px;
+    border: 1px black solid;
+    background-color: #EDE0D4;
+    border-radius: 10px;
+    color: #7F5539;
+
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+}
+
+.ObjectNameInput-div, .ObjectWidthInput-div, .ObjectHeightInput-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .Output-div {
-    border: 2px solid blue;
-    margin: 2px;
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #EDE0D4;
+    color: #7F5539;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

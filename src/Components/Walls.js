@@ -8,11 +8,14 @@ export default function Walls() {
 
     return (
         <form className='Walls-form'>
-            <div className='Walls-Inputsdiv'>
-                <WallsHeightInput />
-                <InkLayersInput />
-                <InkEfficiencyInput />
-                <WallsAmountInput />
+            <div className='Walls-Configdiv'>
+                <h2 className='Walls-Configh2'>Configurações: </h2>
+                <div className='Walls-ConfigInputsDiv'>
+                    <WallsHeightInput />
+                    <InkLayersInput />
+                    <InkEfficiencyInput />
+                    <WallsAmountInput />
+                </div>
             </div>
             <div className='Walls-WallsArrayDiv'>
                 <WallsArray />

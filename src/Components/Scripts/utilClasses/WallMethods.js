@@ -231,7 +231,7 @@ export default class WallMethods {
         for (let i = 0; i < WallMethods.getWallsAmount(walls_State); i++){
             for (let j = 0; j < WallMethods.getWallObjectsAmount(walls_State, i); j++) {
 
-                totalObjectsArea += WallMethods.getWallObjectHeight(walls_State, i, j) * WallMethods.getWallObjectWidth(walls_State, i, j)
+                totalObjectsArea += WallMethods.getWallObjectHeight(walls_State, i, j) * WallMethods.getWallObjectWidth(walls_State, i, j) * WallMethods.getWallDuplicatesAmount(walls_State, i)
             }
         }
 

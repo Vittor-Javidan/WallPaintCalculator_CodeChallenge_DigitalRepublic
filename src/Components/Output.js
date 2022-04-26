@@ -14,7 +14,7 @@ export default function Output() {
 
     return (
         <div className='Output-div'>
-            <h2>Condição: {status}</h2>
+            <h2>{status}</h2>
             <h2>Área total de parede: {WallMethods.getTotalWallArea(walls)}</h2>
             <h2>Área somada dos objetos: {WallMethods.getTotalObjectArea(walls)}</h2>
             <h2>Área total a ser pintada: {WallMethods.getTotalAreaToPaint(walls)}</h2>

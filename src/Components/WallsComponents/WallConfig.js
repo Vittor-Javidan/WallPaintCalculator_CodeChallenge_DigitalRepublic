@@ -14,6 +14,8 @@ export default function WallConfig({ index }) {
                 <WidthInput index={index} />
                 <WallDuplicates index={index} />
                 <ObjectsAmountInput index={index} />
+            </div>
+            <div className='WallConfig-ArrayDiv'>
                 <ObjectsArray index={index} />
             </div>
         </div>
