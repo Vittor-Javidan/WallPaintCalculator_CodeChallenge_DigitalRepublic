@@ -12,7 +12,7 @@ export default class WallMethods {
     static getWallsHeight(walls_State) { return walls_State.height }
     static getWallWidth(walls_State, wall_index) { return walls_State.wall[wall_index].width }
     static getWallInkEfficiency(walls_State) { return walls_State.inkEfficiency }
-    
+
     static getWallObjectsAmount(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjectsAmount }
     static getWallObjectsArray(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjects }
     static getWallObjectsArrayLenght(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjects.length }
@@ -71,7 +71,7 @@ export default class WallMethods {
         ))
     }
 
-    static setWallDuplicatesAmount (setWalls, wall_index, duplicatesAmount) {
+    static setWallDuplicatesAmount(setWalls, wall_index, duplicatesAmount) {
 
         duplicatesAmount = Math.floor(Number(duplicatesAmount))
         setWalls(prev => {
@@ -93,8 +93,8 @@ export default class WallMethods {
             const wallsArrayLength = wallsArray.length
 
             //handles if its needed to create new Walls, or delete some, to fit the new walls amount
-            if (wallsAmount > wallsArrayLength){
-    
+            if (wallsAmount > wallsArrayLength) {
+
                 let diff = wallsAmount - wallsArrayLength
                 for (let i = 0; i < diff; i++) {
                     wallsArray.push(
@@ -106,9 +106,9 @@ export default class WallMethods {
                         }
                     )
                 }
-                
+
             } else {
-        
+
                 let diff = wallsArrayLength - wallsAmount
                 for (let i = 0; i < diff; i++) {
                     wallsArray.pop()
@@ -134,7 +134,7 @@ export default class WallMethods {
             const objectsArrayLength = objectsArray.length
 
             //handles if its needed to create new Objects, or delete some, to fit the new Objects amount
-            if (objectsAmount > objectsArrayLength){
+            if (objectsAmount > objectsArrayLength) {
 
                 let diff = objectsAmount - objectsArrayLength
                 for (let i = 0; i < diff; i++) {
@@ -146,9 +146,9 @@ export default class WallMethods {
                         }
                     )
                 }
-            
+
             } else {
-    
+
                 let diff = objectsArrayLength - objectsAmount
                 for (let i = 0; i < diff; i++) {
                     objectsArray.pop()
@@ -206,7 +206,7 @@ export default class WallMethods {
         })
     }
 
-    static getWallTotalObjectsWidth(walls_State, wall_index){
+    static getWallTotalObjectsWidth(walls_State, wall_index) {
 
         let totalObjectsWidth = 0
         for (let i = 0; i < WallMethods.getWallObjectsArrayLenght(walls_State, wall_index); i++) {
@@ -228,7 +228,7 @@ export default class WallMethods {
 
         let totalObjectsArea = 0
 
-        for (let i = 0; i < WallMethods.getWallsAmount(walls_State); i++){
+        for (let i = 0; i < WallMethods.getWallsAmount(walls_State); i++) {
             for (let j = 0; j < WallMethods.getWallObjectsAmount(walls_State, i); j++) {
 
                 totalObjectsArea += WallMethods.getWallObjectHeight(walls_State, i, j) * WallMethods.getWallObjectWidth(walls_State, i, j) * WallMethods.getWallDuplicatesAmount(walls_State, i)
@@ -242,41 +242,69 @@ export default class WallMethods {
         return WallMethods.getTotalWallArea(walls_State) - WallMethods.getTotalObjectArea(walls_State)
     }
 
+    static verifyConditions(walls_State, setStatus) {
+
+        setStatus('ok')
+
+        for (let i = 0; i < WallMethods.getWallsAmount(walls_State); i++) {
+
+            rulesArray.forEach(element => {
+                element(walls_State, setStatus, i)
+            });
+        }
+    }
+
     static calculateCans(walls_State) {
 
+        console.log(walls_State)
+        
+        let totalCans = ''
         let areaToPaint = (
             WallMethods.getTotalAreaToPaint(walls_State)
         ) * walls_State.inkLayers
-        let totalCans = ''
 
-        for (let i = 0; i < appConfig.CANS_SIZES.length; i++) {
+        // Converts the cansString into a Number array, removing any invalid element
+        const rawArray = walls_State.cansString.split(';')
+        const cansArray = []
+        for (let i = 0; i < rawArray.length; i++) {
+            if (!isNaN(rawArray[i])) {
+                cansArray.push(Number(rawArray[i]))
+                cansArray.sort((a, b) => b - a)
+            }
+        }
 
-            const areaPerCan = appConfig.CANS_SIZES[i] * WallMethods.getWallInkEfficiency(walls_State)
+        // Loops through cansArray and calculate how many cans its needed to paint the wall area
+        for (let i = 0; i < cansArray.length; i++) {
 
-            if (areaToPaint / areaPerCan >= 1 && appConfig.CANS_SIZES[i] > appConfig.CANS_SIZES[appConfig.CANS_SIZES.length - 1]) {
-                const cans = Math.floor(areaToPaint / areaPerCan)
+            const areaPerCan = cansArray[i] * WallMethods.getWallInkEfficiency(walls_State)
+
+            if (areaToPaint / areaPerCan >= 0 && areaToPaint !== 0) {
+
+                let cans
+                i !== cansArray.length -1
+                    ? cans = Math.floor(areaToPaint / areaPerCan)
+                    : cans = Math.ceil(areaToPaint / areaPerCan)
+
                 areaToPaint = areaToPaint - areaPerCan * cans
-                totalCans += `${appConfig.CANS_SIZES[i]}L = ${cans}, `
-
-            } else if (areaToPaint / areaPerCan >= 0 && appConfig.CANS_SIZES[i] === appConfig.CANS_SIZES[appConfig.CANS_SIZES.length - 1]) {
-                const cans = Math.ceil(areaToPaint / areaPerCan)
-                areaToPaint = areaToPaint - areaPerCan * cans
-                totalCans += `${appConfig.CANS_SIZES[i]}L = ${cans}`
+                totalCans += `${cans} latas de ${cansArray[i]}L / `
             }
         }
 
         return totalCans
     }
 
-    static verifyConditions(walls_State, setStatus){
+    static setCansString(setWalls, cansString) {
 
-        setStatus('ok')
+        setWalls(prev => {
+            return {
+                ...prev,
+                cansString: cansString
+            }
+        })
+    }
 
-        for (let i = 0; i < WallMethods.getWallsAmount(walls_State); i++) {
-        
-            rulesArray.forEach(element => {
-                element(walls_State, setStatus, i)
-            });
-        }
+    static getCansString(walls_State) {
+
+        return walls_State.cansString
     }
 }

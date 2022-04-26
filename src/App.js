@@ -27,6 +27,7 @@ export default function App() {
         wallsAmount: appConfig.WALLS_AMMOUNT,
         inkLayers: appConfig.INK_LAYERS,
         inkEfficiency: appConfig.INK_EFFICIENCY,
+        cansString: appConfig.CANS_SIZES,
         wall: wallInit(),
     })
 

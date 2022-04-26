@@ -55,7 +55,7 @@ body {
     justify-content: center;
 }
 
-.HeightInput-div, .InkLayersInput-div, .InkEfficiencyInput-div, .WallsAmountInput-div,
+.Walls-ConfigInputsDiv > div,
 .WidthInput-div, .WallDuplicates-div, .ObjectsAmountInput-div {
     display: flex;
     flex-direction: column;
