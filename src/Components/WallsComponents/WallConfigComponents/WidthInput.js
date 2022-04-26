@@ -9,7 +9,7 @@ export default function WidthInput({index}){
     return (
         <div className='WidthInput-div'>
             <label className='WidthInput-label'>
-                Largura
+                Largura (m2)
             </label>
             <input
                 className='WidthInput-input' 

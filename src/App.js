@@ -14,7 +14,7 @@ function wallInit () {
             width: appConfig.WALL_WIDTH,
             duplicates: appConfig.DUPLICATES_AMOUNT,
             wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
-            wallObjects: []
+            objectsArray: []
         })
     }
     return wallsArray
@@ -28,7 +28,7 @@ export default function App() {
         inkLayers: appConfig.INK_LAYERS,
         inkEfficiency: appConfig.INK_EFFICIENCY,
         cansString: appConfig.CANS_SIZES,
-        wall: wallInit(),
+        wallsArray: wallInit(),
     })
 
     const props = {

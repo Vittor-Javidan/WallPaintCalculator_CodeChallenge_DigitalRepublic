@@ -15,9 +15,9 @@ export default function Output() {
     return (
         <div className='Output-div'>
             <h2>{status}</h2>
-            <h2>Área total de parede: {WallMethods.getTotalWallArea(walls)}</h2>
-            <h2>Área somada dos objetos: {WallMethods.getTotalObjectArea(walls)}</h2>
-            <h2>Área total a ser pintada: {WallMethods.getTotalAreaToPaint(walls)}</h2>
+            <h2>Área total de parede: {WallMethods.getTotalWallArea(walls)} m2</h2>
+            <h2>Área somada dos objetos: {WallMethods.getTotalObjectArea(walls)} m2</h2>
+            <h2>Área total a ser pintada: {WallMethods.getTotalAreaToPaint(walls)} m2</h2>
             <h2>Total de latas de tinta: {WallMethods.calculateCans(walls)}</h2>
         </div>
     )

@@ -9,7 +9,7 @@ export default function ObjectWidthInput({ index_i, index_j }) {
     return (
         <div className='ObjectWidthInput-div'>
             <label className='ObjectWidthInput-label'>
-                Largura
+                Largura (m2)
             </label>
             <input
                 className='ObjectWidthInput-input'

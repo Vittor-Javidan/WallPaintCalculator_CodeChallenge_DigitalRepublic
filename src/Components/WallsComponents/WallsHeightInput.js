@@ -9,7 +9,7 @@ export default function HeightInput(){
     return (
         <div className='HeightInput-div'>
             <label className='HeightInput-label'>
-                Altura das paredes
+                Altura das paredes (m2)
             </label>
             <input
                 className='HeightInput-input'

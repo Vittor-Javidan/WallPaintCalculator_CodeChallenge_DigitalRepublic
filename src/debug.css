@@ -6,8 +6,6 @@
 
 body {
     background-color: #EDE0D4;
-    display: flex;
-    justify-content: space-evenly;
 }
 
 .App-div {
@@ -17,7 +15,6 @@ body {
 
     display: flex;
     flex-direction: column;
-    width: fit-content;
 }
 
 .App-h1 {

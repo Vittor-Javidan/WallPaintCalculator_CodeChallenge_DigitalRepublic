@@ -9,7 +9,7 @@ export default function InkEfficiencyInput() {
     return (
         <div className='InkEfficiencyInput-div'>
             <label className='InkEfficiencyInput-label'>
-                Efficiencia da tinta
+                Gasto de tinta (L/m2)
             </label>
             <input
                 className='InkEfficiencyInput-input'

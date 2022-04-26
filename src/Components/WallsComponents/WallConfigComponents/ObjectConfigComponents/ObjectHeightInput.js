@@ -9,7 +9,7 @@ export default function ObjectHeightInput({ index_i, index_j }) {
     return (
         <div className='ObjectHeightInput-div'>
             <label className='ObjectHeightInput-label'>
-                Altura
+                Altura (m2)
             </label>
             <input
                 className='ObjectHeightInput-input'

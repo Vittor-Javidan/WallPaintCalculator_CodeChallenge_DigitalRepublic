@@ -9,7 +9,7 @@ export default function ObjectNameInput({ index_i,  index_j}) {
     return (
         <div className='ObjectNameInput-div'>
             <label className='ObjectNameInput-label'>
-                Nome
+                Nome (m2)
             </label>
             <input
                 className='ObjectNameInput-input'

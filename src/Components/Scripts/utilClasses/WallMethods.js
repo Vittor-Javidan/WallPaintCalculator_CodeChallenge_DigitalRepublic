@@ -3,22 +3,24 @@ import rulesArray from 'Components/Scripts/Rules/rulesDefinition.js'
 
 export default class WallMethods {
 
-    static getWall(walls_State, wall_index) { return walls_State.wall[wall_index] }
-    static getWallsArray(walls_State) { return walls_State.wall }
-    static getWallsArrayLength(walls_State) { return walls_State.wall.length }
+    static getWall(walls_State, wall_index) { return walls_State.wallsArray[wall_index] }
+    static getWallsArray(walls_State) { return walls_State.wallsArray }
+    static getWallsArrayLength(walls_State) { return walls_State.wallsArray.length }
     static getWallsInkLayers(walls_State) { return walls_State.inkLayers }
     static getWallsAmount(walls_State) { return walls_State.wallsAmount }
-    static getWallDuplicatesAmount(walls_State, wall_index) { return walls_State.wall[wall_index].duplicates }
+    static getWallDuplicatesAmount(walls_State, wall_index) { return walls_State.wallsArray[wall_index].duplicates }
     static getWallsHeight(walls_State) { return walls_State.height }
-    static getWallWidth(walls_State, wall_index) { return walls_State.wall[wall_index].width }
+    static getWallWidth(walls_State, wall_index) { return walls_State.wallsArray[wall_index].width }
     static getWallInkEfficiency(walls_State) { return walls_State.inkEfficiency }
 
-    static getWallObjectsAmount(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjectsAmount }
-    static getWallObjectsArray(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjects }
-    static getWallObjectsArrayLenght(walls_State, wall_index) { return walls_State.wall[wall_index].wallObjects.length }
-    static getWallObjectWidth(walls_State, wall_Index, object_Index) { return walls_State.wall[wall_Index].wallObjects[object_Index].width }
-    static getWallObjectHeight(walls_State, wall_Index, object_Index) { return walls_State.wall[wall_Index].wallObjects[object_Index].height }
-    static getWallObjectName(walls_State, wall_Index, object_Index) { return walls_State.wall[wall_Index].wallObjects[object_Index].name }
+    static getWallObjectsAmount(walls_State, wall_index) { return walls_State.wallsArray[wall_index].wallObjectsAmount }
+    static getWallObjectsArray(walls_State, wall_index) { return walls_State.wallsArray[wall_index].objectsArray }
+    static getWallObjectsArrayLenght(walls_State, wall_index) { return walls_State.wallsArray[wall_index].objectsArray.length }
+    static getWallObjectWidth(walls_State, wall_Index, object_Index) { return walls_State.wallsArray[wall_Index].objectsArray[object_Index].width }
+    static getWallObjectHeight(walls_State, wall_Index, object_Index) { return walls_State.wallsArray[wall_Index].objectsArray[object_Index].height }
+    static getWallObjectName(walls_State, wall_Index, object_Index) { return walls_State.wallsArray[wall_Index].objectsArray[object_Index].name }
+
+    static getCansString(walls_State) { return walls_State.cansString }
 
     static getWallArea(walls_State, wall_index) {
         return WallMethods.getWallWidth(walls_State, wall_index) * WallMethods.getWallsHeight(walls_State)
@@ -38,7 +40,7 @@ export default class WallMethods {
 
         setWalls(prev => {
 
-            const newWallArray = [...prev.wall]
+            const newWallArray = [...prev.wallsArray]
             newWallArray[wall_index] = {
                 ...newWallArray[wall_index],
                 width: Number(widthValue)
@@ -46,7 +48,7 @@ export default class WallMethods {
 
             return {
                 ...prev,
-                wall: newWallArray
+                wallsArray: newWallArray
             }
         })
     }
@@ -77,7 +79,7 @@ export default class WallMethods {
         setWalls(prev => {
 
             const newWalls = { ...prev }
-            newWalls.wall[wall_index].duplicates = duplicatesAmount
+            newWalls.wallsArray[wall_index].duplicates = duplicatesAmount
 
             return newWalls
         })
@@ -89,7 +91,7 @@ export default class WallMethods {
 
         setWalls(prev => {
 
-            const wallsArray = prev.wall
+            const wallsArray = prev.wallsArray
             const wallsArrayLength = wallsArray.length
 
             //handles if its needed to create new Walls, or delete some, to fit the new walls amount
@@ -102,7 +104,7 @@ export default class WallMethods {
                             width: appConfig.WALL_WIDTH,
                             duplicates: appConfig.DUPLICATES_AMOUNT,
                             wallObjectsAmount: appConfig.WALLS_OBJECT_AMOUNT,
-                            wallObjects: []
+                            objectsArray: []
                         }
                     )
                 }
@@ -118,7 +120,7 @@ export default class WallMethods {
             return {
                 ...prev,
                 wallsAmount: wallsAmount,
-                wall: wallsArray
+                wallsArray: wallsArray
             }
         })
     }
@@ -129,8 +131,8 @@ export default class WallMethods {
 
         setWalls(prev => {
 
-            let wallsArray = prev.wall
-            const objectsArray = wallsArray[wall_index].wallObjects
+            let wallsArray = prev.wallsArray
+            const objectsArray = wallsArray[wall_index].objectsArray
             const objectsArrayLength = objectsArray.length
 
             //handles if its needed to create new Objects, or delete some, to fit the new Objects amount
@@ -158,12 +160,12 @@ export default class WallMethods {
             wallsArray[wall_index] = {
                 ...wallsArray[wall_index],
                 wallObjectsAmount: objectsAmount,
-                wallObjects: objectsArray
+                objectsArray: objectsArray
             }
 
             return {
                 ...prev,
-                wall: wallsArray
+                wallsArray: wallsArray
             }
         })
     }
@@ -175,7 +177,7 @@ export default class WallMethods {
         setWalls(prev => {
 
             const newWalls = { ...prev }
-            newWalls.wall[wall_Index].wallObjects[object_Index].width = widthValue
+            newWalls.wallsArray[wall_Index].objectsArray[object_Index].width = widthValue
 
             return newWalls
         })
@@ -188,7 +190,7 @@ export default class WallMethods {
         setWalls(prev => {
 
             const newWalls = { ...prev }
-            newWalls.wall[wall_Index].wallObjects[object_Index].height = heightValue
+            newWalls.wallsArray[wall_Index].objectsArray[object_Index].height = heightValue
 
             return newWalls
         })
@@ -200,9 +202,19 @@ export default class WallMethods {
         setWalls(prev => {
 
             const newWalls = { ...prev }
-            newWalls.wall[wall_Index].wallObjects[object_Index].name = nameString
+            newWalls.wallsArray[wall_Index].objectsArray[object_Index].name = nameString
 
             return newWalls
+        })
+    }
+
+    static setCansString(setWalls, cansString) {
+
+        setWalls(prev => {
+            return {
+                ...prev,
+                cansString: cansString
+            }
         })
     }
 
@@ -291,20 +303,5 @@ export default class WallMethods {
         }
 
         return totalCans
-    }
-
-    static setCansString(setWalls, cansString) {
-
-        setWalls(prev => {
-            return {
-                ...prev,
-                cansString: cansString
-            }
-        })
-    }
-
-    static getCansString(walls_State) {
-
-        return walls_State.cansString
     }
 }

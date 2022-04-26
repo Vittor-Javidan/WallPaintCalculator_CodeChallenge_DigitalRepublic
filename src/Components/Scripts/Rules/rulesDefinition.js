@@ -22,7 +22,7 @@ function checkObjectsMinArea(walls_State, setStatus, wall_Index) {
 
     for (let i = 0; i < WallMethods.getWallObjectsAmount(walls_State, wall_Index); i++)
         if(WallMethods.getWallObjectHeight(walls_State, wall_Index, i) * WallMethods.getWallObjectWidth(walls_State, wall_Index, i) <= 0)
-            setStatus(`AVISO: objeto ${i + 1} da Parede ${wall_Index + 1} não possui uma área válida`)
+            setStatus(`AVISO: objeto ${i + 1} da Parede ${wall_Index + 1} possui área zero`)
 }
 
 function checkMinWallArea(walls_State, setStatus, wall_Index) {
